@@ -1,5 +1,5 @@
 /* TEAM */
-  Clement Ndome Mwakavi
+  Clement Ndome
   Geospatial Software Engineer
   Nairobi, Kenya
 

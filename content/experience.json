@@ -1,0 +1,77 @@
+[
+  {
+    "id": "forbspace",
+    "title": "GIS Developer",
+    "org": "ForbSpace Inc.",
+    "location": "Kitale, Kenya",
+    "period": "Jan 2025 – Present",
+    "type": "employment",
+    "note": "Company-owned Aeronautical Information GIS Platform — experience wording and proof chip only. No card, screenshots, links or case study. (master#4.1, plan D8)",
+    "bullets": [
+      { "text": "Leading development of an Aeronautical Information GIS Platform (Django, PostGIS, GeoServer), full SDLC.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" },
+      { "text": "Designed and implemented backend architecture using Django, PostGIS, and GeoServer to deliver reliable, standards-compliant geospatial services.", "lenses": ["general", "web"], "source": "master#4.1" },
+      { "text": "Integrated heterogeneous spatial and non-spatial datasets and ensured data integrity across internal platforms.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" },
+      { "text": "Automated geospatial validation and processing workflows, improving data reliability and reducing manual errors.", "lenses": ["general", "gis-rs"], "source": "master#4.1" },
+      { "text": "Translated Francophone AIP datasets (Senegal, Mali, Congo-Brazzaville) into English, ensuring cross-language data consistency.", "lenses": ["general"], "source": "master#4.1 GIS&data/ASSOCIATE" },
+      { "text": "Created market intelligence maps in ArcGIS Pro to identify customer hotspots, enabling data-driven outreach.", "lenses": ["general", "web"], "source": "master#4.1 GIS&data" },
+      { "text": "Mentored junior staff on GIS data standards and system development practices.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" }
+    ]
+  },
+  {
+    "id": "personal-projects",
+    "title": "Builder & tool developer",
+    "org": "Personal Projects (SpatioNEX initiative, outside working hours)",
+    "location": "Nairobi, Kenya",
+    "period": "Jan 2025 – Present",
+    "type": "personal",
+    "note": "All projects that are not employment or freelance go here. (master#4.5, plan D10/D11)",
+    "bullets": [
+      { "text": "Ships live GIS/web apps on off-days: obstacle-compliance checks, crop health, retail location intelligence, fleet and asset dashboards.", "lenses": ["general", "web", "gis-rs"], "source": "master#4.5" },
+      { "text": "Models ICAO Annex 14 obstacle surfaces as a personal prototype on public data with demonstration certificates (not an official KCAA system).", "lenses": ["general", "web"], "source": "master#4.5/plan-A.3" }
+    ]
+  },
+  {
+    "id": "freelance",
+    "title": "GIS & Applied AI Systems Developer",
+    "org": "Freelance",
+    "location": "Remote",
+    "period": "Mar 2024 – Dec 2024",
+    "type": "freelance",
+    "note": "Decided dates Mar 2024 – Dec 2024 (master#9 item 1-2).",
+    "bullets": [
+      { "text": "Designed, built, and deployed GIS and AI-enabled systems using Django, Flask, PostGIS, GeoServer, and Leaflet.", "lenses": ["general", "web", "gis-rs"], "source": "master#4.2" },
+      { "text": "Integrated machine learning models into API-driven GIS backends for predictive spatial analysis.", "lenses": ["general", "gis-rs"], "source": "master#4.2" },
+      { "text": "Developed RESTful geospatial and ML services supporting web and field data collection workflows.", "lenses": ["general", "web"], "source": "master#4.2" },
+      { "text": "Built customized AI components, including RAG-based systems, integrated with structured vector databases.", "lenses": ["general"], "source": "master#4.2" },
+      { "text": "Re-engineered and deployed a customized ANFIS model for heterogeneous remote sensing inputs, delivering predictions via web services.", "lenses": ["gis-rs", "general"], "source": "master#4.2" },
+      { "text": "Automated geoprocessing workflows using ArcPy and Model Builder.", "lenses": ["gis-rs", "web"], "source": "master#4.2 (no % claim on site per D14)" }
+    ]
+  },
+  {
+    "id": "dekut-ra",
+    "title": "Project Research Assistant (GIS & Remote Sensing)",
+    "org": "Dedan Kimathi University of Technology (IGGRES)",
+    "location": "Nyeri, Kenya",
+    "period": "Apr 2022 – Jun 2023",
+    "type": "research",
+    "bullets": [
+      { "text": "Trained and evaluated ML models for LULC using Random Forest; maintained models for consistency across zones.", "lenses": ["gis-rs", "general"], "source": "master#4.4" },
+      { "text": "Developed geospatial and ML pipelines using GDAL, Rasterio, and GeoPandas.", "lenses": ["gis-rs", "general"], "source": "master#4.4" },
+      { "text": "Built cross-platform forest data collection system (mobile/desktop/web) using Flutter and Firebase.", "lenses": ["general", "web"], "source": "master#4.4" },
+      { "text": "Automated data workflows using ArcGIS notebooks and Python for forest ecosystem monitoring.", "lenses": ["gis-rs"], "source": "master#4.4 (no % claim on site per D14)" }
+    ]
+  },
+  {
+    "id": "sok-intern",
+    "title": "GIS & Survey Intern",
+    "org": "Survey of Kenya",
+    "location": "Nairobi, Kenya",
+    "period": "May – Aug 2023",
+    "type": "internship",
+    "bullets": [
+      { "text": "Conducted cadastral and topographic surveys using RTK GNSS and AutoCAD.", "lenses": ["general", "gis-rs"], "source": "master#4.3" },
+      { "text": "Performed Cassini-to-UTM coordinate transformations and updated cadastral plans.", "lenses": ["gis-rs"], "source": "master#4.3" },
+      { "text": "Supported digitization and spatial database management for land administration.", "lenses": ["general", "gis-rs"], "source": "master#4.3" }
+    ]
+  }
+]

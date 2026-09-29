@@ -1,0 +1,35 @@
+{
+  "general": {
+    "route": "/",
+    "label": "General",
+    "headline": "Geospatial Software Engineer",
+    "subline": "GIS, backend and applied AI: from spatial databases to deployed decision-support tools.",
+    "cv": "/cv/clement-ndome-general.pdf",
+    "accent": "blue",
+    "featuredProjects": ["obstacle-compliance", "agriinsight", "site-seeker", "rag-assistant"],
+    "skillOrder": ["sdi", "appdev", "enterprise-gis", "rs", "aiml", "frontend", "devops-field"],
+    "experienceFilter": ["general", "web"]
+  },
+  "gis-rs": {
+    "route": "/gis-rs",
+    "label": "GIS & RS",
+    "headline": "GIS & Remote Sensing Engineer",
+    "subline": "Earth observation, vegetation monitoring, early-warning and yield systems for East Africa.",
+    "cv": "/cv/clement-ndome-gis-rs.pdf",
+    "accent": "green",
+    "featuredProjects": ["agriinsight", "crop-ews", "maize-yield", "obstacle-compliance"],
+    "skillOrder": ["rs", "sdi", "aiml", "enterprise-gis", "appdev", "devops-field", "frontend"],
+    "experienceFilter": ["general", "gis-rs"]
+  },
+  "web": {
+    "route": "/web",
+    "label": "WebGIS",
+    "headline": "WebGIS Developer",
+    "subline": "Fast, clear interactive web maps and spatial dashboards, from PostGIS to the browser.",
+    "cv": "/cv/clement-ndome-web.pdf",
+    "accent": "blue",
+    "featuredProjects": ["obstacle-compliance", "site-seeker", "fleet-guard", "asset-management"],
+    "skillOrder": ["frontend", "sdi", "appdev", "enterprise-gis", "devops-field", "rs", "aiml"],
+    "experienceFilter": ["general", "web"]
+  }
+}

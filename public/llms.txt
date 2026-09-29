@@ -1,0 +1,12 @@
+# Clement Ndome
+> Geospatial Software Engineer in Nairobi, Kenya. GIS, backend and applied AI: from spatial databases to deployed decision-support tools.
+
+## Lenses
+- Generalist: https://clementndome.github.io/
+- GIS & RS: https://clementndome.github.io/gis-rs/
+- WebGIS: https://clementndome.github.io/web/
+
+## Contact
+- Email: clement.ndome@spationex.com
+- GitHub: https://github.com/ClementNdome
+

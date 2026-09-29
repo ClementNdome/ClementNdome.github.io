@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sdi",
+    "title": "Spatial Data Infrastructure & Databases",
+    "items": ["PostgreSQL/PostGIS schema design", "Spatial SQL + indexing", "GeoServer deployment", "Data validation pipelines"],
+    "evidence": ["obstacle-compliance", "agriinsight", "schools-locator"]
+  },
+  {
+    "id": "appdev",
+    "title": "GIS Application Development",
+    "items": ["Django / GeoDjango / Flask / FastAPI", "RESTful geospatial APIs", "SDLC: requirements → deployment → maintenance", "ETL + workflow automation"],
+    "evidence": ["obstacle-compliance", "agriinsight", "site-seeker"]
+  },
+  {
+    "id": "enterprise-gis",
+    "title": "Enterprise & Open-Source GIS",
+    "items": ["ArcGIS Pro / Online / Enterprise", "QGIS + PyQGIS + Modeler", "ArcPy + ModelBuilder", "QField / Survey123 / KoboCollect"],
+    "evidence": ["crop-ews", "maize-yield", "forbspace-navigator"]
+  },
+  {
+    "id": "rs",
+    "title": "Remote Sensing & Spatial Analysis",
+    "items": ["Google Earth Engine + GEEMAP", "NDVI / EVI / SAVI / NDMI", "LULC + change detection", "HEC-RAS / HEC-HMS / SWAT watershed"],
+    "evidence": ["agriinsight", "crop-ews", "maize-yield"]
+  },
+  {
+    "id": "aiml",
+    "title": "AI / ML for GIS",
+    "items": ["Random Forest + CNN land-cover (85% accuracy)", "RAG + ChromaDB (grounded, citation-backed)", "ANFIS for heterogeneous RS inputs", "Ground-truth curation + augmentation"],
+    "evidence": ["rag-assistant", "maize-yield", "crop-ews"]
+  },
+  {
+    "id": "frontend",
+    "title": "Frontend & Visualization",
+    "items": ["Leaflet / Mapbox / OpenLayers", "Next.js + Tailwind + TypeScript", "Power BI dashboards", "Mobile-first interactive maps"],
+    "evidence": ["obstacle-compliance", "site-seeker", "fleet-guard", "asset-management"]
+  },
+  {
+    "id": "devops-field",
+    "title": "DevOps & Field Data",
+    "items": ["Docker + CI/CD + Git", "AWS / GCP / Cloud Run / Vercel", "RTK GNSS + AutoCAD", "SOPs + training + mentoring"],
+    "evidence": ["sdi-prototype", "forbspace-navigator", "schools-locator"]
+  }
+]

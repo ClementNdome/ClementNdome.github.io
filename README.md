@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Improved CLM Portfolio — Next.js rebuild
 
-## Getting Started
+One domain, three lenses. Static export to GitHub Pages.
 
-First, run the development server:
+- `/` — Generalist: Geospatial Software Engineer
+- `/gis-rs/` — GIS & Remote Sensing Engineer
+- `/web/` — WebGIS Developer
+- `/projects/` + `/projects/[slug]/` — all projects + case studies
+- `/ai` reserved (content lives under Generalist for now)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Quick start
+
+```powershell
+npm install
+npm run validate   # dev: TODOs warn
+npm run dev -- --webpack
+npm run build      # webpack (win32 WASM fallback)
+npx serve out      # preview static export
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Prod gate: `VALIDATE_PROD=1 npm run validate` fails if any featured/draft project still has `TODO:` — per plan §6a. CI runs this before build.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Add a project (~5 min)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```powershell
+npm run new:project <slug>
+# fill content/projects/<slug>.md, drop cover in public/projects/<slug>/
+npm run validate
+```
 
-## Learn More
+Featured = listed in `content/lenses.json`. Keep 3–4 per lens. Rest appear under More work automatically.
 
-To learn more about Next.js, take a look at the following resources:
+## Content source
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `content/profile.json`, `lenses.json`, `experience.json`, `skills.json`, `education.json`
+- `content/projects/*.md` (frontmatter schema in `src/lib/projects.ts`)
+- Master truth stays in `planning_new_portfolio/MASTER_CV_CONSOLIDATED.md` — not committed here.
+- Placeholders (`TODO:`, `draft: true`) are intentional until you paste Fleet Guard text, DevStory dump, dates, stacks, screenshots.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
+Push to `main` → `.github/workflows/deploy.yml`: `npm ci` → `validate (PROD=1)` → `build` → Pages `out/` + `.nojekyll`. Target domain `https://clementndome.github.io/`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Privacy: no phone, referee, or personal email in repo. Public email `clement.ndome@spationex.com`. Cert links use Drive URLs for v1.

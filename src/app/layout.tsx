@@ -11,7 +11,7 @@ const site = "https://clementndome.github.io";
 export const metadata: Metadata = {
   metadataBase: new URL(site),
   title: {
-    default: "Clement Ndome — Geospatial Software Engineer",
+    default: "Clement Ndome | Geospatial Software Engineer",
     template: "%s — Clement Ndome",
   },
   description: "GIS, backend and applied AI: from spatial databases to deployed decision-support tools. Nairobi, Kenya.",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     type: "website",
     url: site,
     siteName: "Clement Ndome",
-    title: "Clement Ndome — Geospatial Software Engineer",
+    title: "Clement Ndome | Geospatial Software Engineer",
     description: "GIS, backend and applied AI: from spatial databases to deployed decision-support tools.",
     images: [{ url: "/og/og-general.png", width: 1200, height: 630, alt: "Clement Ndome — Geospatial Software Engineer" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clement Ndome — Geospatial Software Engineer",
+    title: "Clement Ndome | Geospatial Software Engineer",
     description: "GIS, backend and applied AI: from spatial databases to deployed decision-support tools.",
     images: ["/og/og-general.png"],
   },

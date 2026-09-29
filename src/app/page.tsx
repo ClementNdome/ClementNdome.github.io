@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://clementndome.github.io/",
     siteName: "Clement Ndome",
-    title: "Clement Ndome — Geospatial Software Engineer",
+    title: "Clement Ndome | Geospatial Software Engineer",
     description: "GIS, backend and applied AI: from spatial databases to deployed decision-support tools.",
     images: [{ url: "/og/og-general.png", width: 1200, height: 630, alt: "Clement Ndome — Geospatial Software Engineer" }],
   },

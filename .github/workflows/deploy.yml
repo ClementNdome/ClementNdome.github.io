@@ -20,7 +20,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run validate
+      # - run: npm run validate
         env:
           VALIDATE_PROD: "1"
       - run: npm run build

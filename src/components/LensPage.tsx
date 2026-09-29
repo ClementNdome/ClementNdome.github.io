@@ -31,13 +31,13 @@ type Props = {
 
 export default function LensPage({ lensKey, lens, profile, featured, moreWork, roles, skillGroups, edu }: Props) {
   return (
-    <div data-accent={lens.accent}>
-      <Nav active={lensKey} />
-      <main>
+    <div data-accent={lens.accent} className="flex min-h-dvh min-w-0 flex-col">
+      <Nav home={lens.route} showSections />
+      <main className="min-w-0 flex-1">
         <Hero lens={lens} lensKey={lensKey} profile={profile} />
-        <section className="mx-auto max-w-6xl px-4 py-4">
-          <h2 className="text-2xl font-extrabold">Featured projects</h2>
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <section id="projects" className="container-x scroll-mt-20 py-4 sm:py-6">
+          <h2 className="h2-fluid font-extrabold">Featured projects</h2>
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
             {featured.map((p) => <ProjectCard key={p.slug} p={p} />)}
           </div>
         </section>
@@ -45,21 +45,21 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
         <Skills groups={skillGroups} order={lens.skillOrder} />
         <Education edu={edu} />
         {moreWork.length > 0 ? (
-          <section className="mx-auto max-w-6xl px-4 py-8">
-            <h2 className="text-2xl font-extrabold">More work</h2>
-            <div className="card mt-4 divide-y p-2" style={{ borderColor: "var(--border)" }}>
+          <section className="container-x py-6 sm:py-8">
+            <h2 className="h2-fluid font-extrabold">More work</h2>
+            <div className="card mt-4 divide-y p-1 sm:p-2" style={{ borderColor: "var(--border)" }}>
               {moreWork.map((p) => (
-                <a key={p.slug} href={`/projects/${p.slug}/`} className="flex flex-wrap items-baseline justify-between gap-2 px-3 py-2">
-                  <span className="font-semibold">{p.title}</span>
-                  <span className="text-sm" style={{ color: "var(--muted)" }}>{p.tagline}</span>
+                <a key={p.slug} href={`/projects/${p.slug}/`} className="flex min-w-0 flex-col gap-0.5 px-3 py-2.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+                  <span className="prose-wrap min-w-0 font-semibold">{p.title}</span>
+                  <span className="prose-wrap clamp-2 min-w-0 text-sm sm:max-w-[60%] sm:text-right" style={{ color: "var(--muted)" }}>{p.tagline}</span>
                 </a>
               ))}
             </div>
           </section>
         ) : null}
-        <section className="mx-auto max-w-6xl px-4 py-8">
-          <h2 className="text-2xl font-extrabold">How I build</h2>
-          <div className="card mt-4 p-5 text-sm">
+        <section className="container-x py-6 sm:py-8">
+          <h2 className="h2-fluid font-extrabold">How I build</h2>
+          <div className="card prose-wrap mt-4 p-4 text-sm leading-relaxed sm:p-5 sm:text-base">
             <p>SDLC from requirements to maintenance. PostGIS schema design with indexing and validation pipelines. Small, deployable increments with live demos and short recordings when free tiers sleep.</p>
           </div>
         </section>

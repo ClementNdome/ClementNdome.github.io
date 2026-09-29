@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import LensPage from "@/components/LensPage";
 import { getAllProjects, readJson } from "@/lib/content";
 import type { Lens } from "@/lib/projects";
@@ -5,6 +6,41 @@ import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
   return [{ lens: "gis-rs" }, { lens: "web" }];
+}
+
+const lensMeta: Record<string, { title: string; description: string; og: string; canonical: string }> = {
+  "gis-rs": {
+    title: "Clement Ndome | GIS & Remote Sensing Engineer",
+    description: "Earth observation, vegetation monitoring, early-warning and yield systems for East Africa.",
+    og: "/og/og-gis-rs.png",
+    canonical: "https://clementndome.github.io/gis-rs/",
+  },
+  web: {
+    title: "Clement Ndome | WebGIS Developer",
+    description: "Fast, clear interactive web maps and spatial dashboards, from PostGIS to the browser.",
+    og: "/og/og-web.png",
+    canonical: "https://clementndome.github.io/web/",
+  },
+};
+
+export async function generateMetadata({ params }: { params: Promise<{ lens: string }> }): Promise<Metadata> {
+  const { lens: lensKey } = await params;
+  const m = lensMeta[lensKey];
+  if (!m) return {};
+  return {
+    title: m.title,
+    description: m.description,
+    alternates: { canonical: m.canonical },
+    openGraph: {
+      type: "website",
+      url: m.canonical,
+      siteName: "Clement Ndome",
+      title: m.title,
+      description: m.description,
+      images: [{ url: m.og, width: 1200, height: 630, alt: m.title }],
+    },
+    twitter: { card: "summary_large_image", title: m.title, description: m.description, images: [m.og] },
+  };
 }
 
 export default async function LensRoute({ params }: { params: Promise<{ lens: string }> }) {

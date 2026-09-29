@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
 import LensPage from "@/components/LensPage";
 import { getAllProjects, readJson } from "@/lib/content";
 import type { Lens } from "@/lib/projects";
+
+export const metadata: Metadata = {
+  title: "Clement Ndome | Geospatial Software Engineer",
+  description: "GIS, backend and applied AI: from spatial databases to deployed decision-support tools. Nairobi, Kenya.",
+  alternates: { canonical: "https://clementndome.github.io/" },
+  openGraph: {
+    type: "website",
+    url: "https://clementndome.github.io/",
+    siteName: "Clement Ndome",
+    title: "Clement Ndome — Geospatial Software Engineer",
+    description: "GIS, backend and applied AI: from spatial databases to deployed decision-support tools.",
+    images: [{ url: "/og/og-general.png", width: 1200, height: 630, alt: "Clement Ndome — Geospatial Software Engineer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Clement Ndome | Geospatial Software Engineer",
+    description: "GIS, backend and applied AI: from spatial databases to deployed decision-support tools.",
+    images: ["/og/og-general.png"],
+  },
+};
 
 export default function Home() {
   const profile = readJson<{ name: string; location: string; email: string; currently: string; socials: { github: string; linkedin: string; devstory: string; spationex: string }; formspree: string }>("profile.json");

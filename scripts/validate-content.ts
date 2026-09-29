@@ -8,11 +8,11 @@ const root = process.cwd();
 const contentDir = path.join(root, "content");
 const projectsDir = path.join(contentDir, "projects");
 
-const BANNED = ["Founder", "Co-founder", "hallucination-free", "+254", "Namasake", "Gikwa", "Ndiwa", "clementndome20@gmail.com"];
+const BANNED = ["Founder", "Co-founder", "hallucination-free", "+254", "Namasake", "Gikwa", "Ndiwa", "clementndome20@gmail.com", "View as"];
 const PERCENT_ALLOW = ["85%"];
 
-let errors: string[] = [];
-let warnings: string[] = [];
+const errors: string[] = [];
+const warnings: string[] = [];
 
 function err(m: string) { errors.push(m); }
 function warn(m: string) { warnings.push(m); }
@@ -25,6 +25,9 @@ for (const k of lensKeys) {
   const l = lensesRaw[k];
   if (!l.headline || !l.subline) err(`Lens ${k} missing headline/subline`);
   if (!Array.isArray(l.featuredProjects) || l.featuredProjects.length === 0) warn(`Lens ${k} has no featured projects`);
+  if (typeof l.cv !== "string" || !l.cv.startsWith("https://docs.google.com/document/")) {
+    err(`Lens ${k} cv must be a Google Drive document URL`);
+  }
 }
 
 // experience
@@ -71,6 +74,16 @@ for (const f of files) {
   }
   if (p.status === "live" && !p.links?.live) warn(`${f}: status live without live link`);
   if (!p.media?.cover) warn(`${f}: no cover image`);
+  else if (typeof p.media.cover === "string" && p.media.cover.startsWith("/projects/")) {
+    const coverFile = path.join(root, "public", ...p.media.cover.replace(/^\//, "").split("/"));
+    if (!fs.existsSync(coverFile)) warn(`${f}: cover file missing: ${p.media.cover}`);
+  }
+  for (const g of p.media?.gallery ?? []) {
+    if (typeof g === "string" && g.startsWith("/projects/")) {
+      const gf = path.join(root, "public", ...g.replace(/^\//, "").split("/"));
+      if (!fs.existsSync(gf)) warn(`${f}: gallery file missing: ${g}`);
+    }
+  }
   if ((p.summary?.length ?? 0) > 400) warn(`${f}: summary long (>400 chars)`);
   for (const l of p.lenses) {
     if (!lensKeys.includes(l)) err(`${f}: unknown lens ref ${l}`);
@@ -112,6 +125,18 @@ const LensFileSchema = z.record(z.string(), z.object({
 }));
 const lensParse = LensFileSchema.safeParse(lensesRaw);
 if (!lensParse.success) err(`lenses.json shape invalid`);
+
+// nav scope guards: no hardcoded home link, no section anchors on project templates
+const navSrc = fs.readFileSync(path.join(root, "src", "components", "Nav.tsx"), "utf8");
+if (navSrc.includes('href="/"')) err(`Nav.tsx must not hardcode href="/" — use the home prop`);
+const projectIndex = fs.readFileSync(path.join(root, "src", "app", "projects", "page.tsx"), "utf8");
+const projectSlug = fs.readFileSync(path.join(root, "src", "app", "projects", "[slug]", "page.tsx"), "utf8");
+for (const [name, src] of [["projects/page.tsx", projectIndex], ["projects/[slug]/page.tsx", projectSlug]] as const) {
+  for (const a of ["#projects", "#experience", "#skills", "#contact"]) {
+    if (src.includes(`"${a}"`) || src.includes(`'${a}'`)) err(`${name} must not contain section anchor ${a}`);
+  }
+  if (!src.includes("showSections={false}")) err(`${name} must render <Nav> with showSections={false}`);
+}
 
 console.log(`Checked ${files.length} projects, ${lensKeys.length} lenses.`);
 if (warnings.length) { console.log("\nWARNINGS:"); warnings.forEach((w) => console.log(" - " + w)); }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import Nav from "@/components/Nav";
+import BackToTop from "@/components/BackToTop";
 import { getAllProjects, getProject } from "@/lib/content";
 import { hostingBadge } from "@/lib/projects";
 import { notFound } from "next/navigation";
@@ -82,6 +83,7 @@ export default async function ProjectRoute({ params }: { params: Promise<{ slug:
           ) : null}
         </div>
       </main>
+      <BackToTop />
     </div>
   );
 }

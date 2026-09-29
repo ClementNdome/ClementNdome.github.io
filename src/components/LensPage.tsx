@@ -7,6 +7,7 @@ import Skills from "./Skills";
 import Education from "./Education";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import BackToTop from "./BackToTop";
 import type { Lens, Project } from "@/lib/projects";
 
 type Props = {
@@ -66,6 +67,7 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
         <Contact formspree={profile.formspree} email={profile.email} />
       </main>
       <Footer github={profile.socials.github} linkedin={profile.socials.linkedin} spationex={profile.socials.spationex} />
+      <BackToTop />
     </div>
   );
 }

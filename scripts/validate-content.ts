@@ -138,6 +138,12 @@ for (const [name, src] of [["projects/page.tsx", projectIndex], ["projects/[slug
   if (!src.includes("showSections={false}")) err(`${name} must render <Nav> with showSections={false}`);
 }
 
+// public filter guard: tags-only, no lens keys in the client filter
+const filterSrc = fs.readFileSync(path.join(root, "src", "components", "ProjectFilter.tsx"), "utf8");
+for (const leak of ["lenses", "lensKey", "gis-rs"]) {
+  if (filterSrc.includes(leak)) err(`ProjectFilter.tsx must not reference "${leak}" — tags-only filter`);
+}
+
 console.log(`Checked ${files.length} projects, ${lensKeys.length} lenses.`);
 if (warnings.length) { console.log("\nWARNINGS:"); warnings.forEach((w) => console.log(" - " + w)); }
 if (errors.length) { console.log("\nERRORS:"); errors.forEach((e) => console.log(" - " + e)); process.exit(1); }

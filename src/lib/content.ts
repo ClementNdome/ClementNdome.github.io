@@ -5,6 +5,7 @@ import { ProjectFrontmatterSchema, type Project } from "./projects";
 
 const contentDir = path.join(process.cwd(), "content");
 const projectsDir = path.join(contentDir, "projects");
+const publicDir = path.join(process.cwd(), "public");
 
 function hasTodoMarker(raw: string) {
   return raw.includes("TODO:");
@@ -19,7 +20,15 @@ export function getAllProjects(): Project[] {
       ...(parsed.data as Record<string, unknown>),
       slug: (parsed.data as { slug?: string }).slug ?? f.replace(/\.md$/, ""),
     });
-    return { ...data, body: parsed.content.trim(), hasTodo: hasTodoMarker(raw) };
+    const coverPath = typeof data.media?.cover === "string" && data.media.cover.startsWith("/projects/")
+      ? path.join(publicDir, data.media.cover.replace(/^\//, "").replace(/\//g, path.sep))
+      : null;
+    return {
+      ...data,
+      body: parsed.content.trim(),
+      hasTodo: hasTodoMarker(raw),
+      hasCover: coverPath ? fs.existsSync(coverPath) : false,
+    };
   });
 }
 

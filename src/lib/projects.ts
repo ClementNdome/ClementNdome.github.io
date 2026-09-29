@@ -27,7 +27,7 @@ export const ProjectFrontmatterSchema = z.object({
 });
 
 export type ProjectFrontmatter = z.infer<typeof ProjectFrontmatterSchema>;
-export type Project = ProjectFrontmatter & { body: string; hasTodo: boolean };
+export type Project = ProjectFrontmatter & { body: string; hasTodo: boolean; hasCover: boolean };
 export type LensKey = z.infer<typeof LensKeySchema>;
 export type Lens = {
   route: string; label: string; headline: string; subline: string; cv: string;

@@ -20,9 +20,9 @@ links:
 demo:
   hosting: other
 media:
-  cover: /projects/forest-collection/cover.png
-  gallery: []
+  cover: /projects/forest-collection/cover.jpg
+  gallery: [/projects/forest-collection/datacollect2.jpg, /projects/forest-collection/datacollect3.jpg, /projects/forest-collection/datacollect4.jpg]
   video: null
 draft: true
 ---
-TODO: screenshots, repo.
+TODO: repo link.

@@ -8,7 +8,7 @@ tags: [Flask, PostGIS, Leaflet]
 role: Sole developer
 org: Personal project
 period: TODO
-summary: National education infrastructure viewer supporting regional coverage analysis and planning.
+summary: Spatial analytics system assessing the distribution and accessibility of education infrastructure across Kenya. Regional coverage analysis and planning insights help stakeholders spot spatial gaps and make evidence-based infrastructure decisions — a fast-deployable analytics solution for public-sector use cases.
 problem: Planners need to see school distribution gaps quickly.
 outcome:
   - text: Live WebGIS with coverage views
@@ -25,4 +25,4 @@ media:
   video: null
 draft: true
 ---
-TODO: date from commits. Screenshot exists in old portfolio.
+TODO: date from commits.

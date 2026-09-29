@@ -21,8 +21,8 @@ demo:
   hosting: other
 media:
   cover: /projects/crop-ews/cover.png
-  gallery: []
+  gallery: [/projects/crop-ews/ews1.png, /projects/crop-ews/ews3.png, /projects/crop-ews/screenshot-14.png]
   video: null
 draft: true
 ---
-TODO: date from commits, alert channels, screenshot (placeholder today).
+TODO: date from commits, alert channels.

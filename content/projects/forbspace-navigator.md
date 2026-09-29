@@ -1,19 +1,19 @@
 ---
 slug: forbspace-navigator
 title: ForbSpace Navigator
-tagline: Real-time interactive map navigator with GPS, basemaps and 3D terrain.
+tagline: HTML directions-to-office app with Mapbox realtime navigation.
 status: live
 lenses: [web]
-tags: [Leaflet, GPS, Basemaps]
+tags: [Mapbox, Navigation, HTML]
 role: Contributor
 org: ForbSpace-Inc
 period: TODO
-summary: Clean mobile-friendly map UI with real-time controls and direct user interaction.
-problem: TODO
+summary: Simple HTML web app giving turn-by-turn routes to the ForbSpace office using Mapbox realtime navigation — destination capped at the office.
+problem: Visitors need reliable directions to the ForbSpace office.
 outcome:
-  - text: Live navigator demo
+  - text: Live directions demo with realtime routing to the office
     verified: true
-    source: plan#6
+    source: owner-readme-dump
 links:
   live: https://forbspace-inc.github.io/ForbSpace-Inc/
   code: null
@@ -25,4 +25,4 @@ media:
   video: null
 draft: true
 ---
-TODO: date, code link (none today), confirm ok to show.
+TODO: date, confirm ok to show.

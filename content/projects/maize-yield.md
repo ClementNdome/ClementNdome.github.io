@@ -21,8 +21,8 @@ demo:
   hosting: other
 media:
   cover: /projects/maize-yield/cover.png
-  gallery: []
+  gallery: [/projects/maize-yield/maize2.png]
   video: null
 draft: true
 ---
-TODO: date from commits, screenshot (placeholder today).
+TODO: date from commits.

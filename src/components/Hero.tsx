@@ -3,8 +3,8 @@ import type { Lens } from "@/lib/projects";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
 type Profile = {
-  name: string; location: string; email: string; currently: string;
-  socials: { github: string; linkedin: string; devstory: string };
+  name: string; location: string; currently: string;
+  socials: { github: string; linkedin: string };
 };
 
 export default function Hero({ lens, profile }: { lens: Lens; lensKey: string; profile: Profile }) {
@@ -35,9 +35,6 @@ export default function Hero({ lens, profile }: { lens: Lens; lensKey: string; p
         {/* Quiet CV: right side, de-emphasized, same text on every route */}
         <aside className="card min-w-0 p-4 sm:p-5 lg:w-64 lg:shrink-0">
           <p className="text-sm font-bold">Curriculum Vitae</p>
-          <p className="prose-wrap mt-1 text-xs leading-relaxed" style={{ color: "var(--muted)" }}>
-           
-          </p>
           <a
             href={lens.cv}
             target="_blank"

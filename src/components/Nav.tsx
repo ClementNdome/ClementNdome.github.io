@@ -16,7 +16,7 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-export function BackButton({ fallbackHome = "/" }: { fallbackHome?: string }) {
+function BackButton({ fallbackHome = "/" }: { fallbackHome?: string }) {
   function onBack(e: React.MouseEvent) {
     e.preventDefault();
     try {

@@ -6,7 +6,7 @@ status: live
 lenses: [general, gis-rs]
 tags: [Django, PostGIS, Google Earth Engine, NDVI, Early warning]
 role: Sole developer
-org: Personal project (SpatioNEX initiative)
+org: Personal project
 period: Nov 2025 – Jun 2026
 summary: GIS-based platform empowering farmers with real-time, data-driven insights into agricultural operations.
 problem: Farmers need timely crop stress signals without waiting for field visits.
@@ -16,7 +16,7 @@ outcome:
     source: master#4.5
 links:
   live: https://agri-insight.spationex.com/landing/
-  code: https://github.com/ClementNdome/agri_insight
+  code: null
 demo:
   hosting: other
 media:

@@ -4,7 +4,9 @@ import { getAllProjects, getProject } from "@/lib/content";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
-  return getAllProjects().filter((p) => p.status !== "private").map((p) => ({ slug: p.slug }));
+  return getAllProjects()
+    .filter((p) => p.status !== "private" && (p.lenses as string[]).includes("general"))
+    .map((p) => ({ slug: p.slug }));
 }
 
 function ogForLens(lens: string) {
@@ -16,7 +18,7 @@ function ogForLens(lens: string) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const p = getProject(slug);
-  if (!p || p.status === "private") return {};
+  if (!p || p.status === "private" || !(p.lenses as string[]).includes("general")) return {};
   const og = ogForLens((p.lenses as string[])[0] ?? "general");
   const canonical = `https://clementndome.github.io/projects/${slug}/`;
   return {
@@ -38,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ProjectRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const p = getProject(slug);
-  if (!p || p.status === "private") notFound();
-  const siblings = getAllProjects().filter((q) => q.status !== "private" && (q.lenses as string[]).some((l) => (p.lenses as string[]).includes(l)));
+  if (!p || p.status === "private" || !(p.lenses as string[]).includes("general")) notFound();
+  const siblings = getAllProjects().filter((q) => q.status !== "private" && (q.lenses as string[]).includes("general"));
   return <ProjectDetail p={p} home="/" projectsBase="/projects" backLabel="All projects" siblings={siblings} />;
 }

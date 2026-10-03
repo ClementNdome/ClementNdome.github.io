@@ -64,12 +64,6 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
             </div>
           </section>
         ) : null}
-        <section className="container-x py-6 sm:py-8">
-          <h2 className="h2-fluid font-extrabold">How I build</h2>
-          <div className="card prose-wrap mt-4 p-4 text-sm leading-relaxed sm:p-5 sm:text-base">
-            <p>SDLC from requirements to maintenance. PostGIS schema design with indexing and validation pipelines. Small, deployable increments with live demos and short recordings when free tiers sleep.</p>
-          </div>
-        </section>
         <Contact formspree={profile.formspree} email={profile.email} />
       </main>
       <Footer github={profile.socials.github} linkedin={profile.socials.linkedin} spationex={profile.socials.spationex} />

@@ -2,7 +2,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Nav from "@/components/Nav";
 import BackToTop from "@/components/BackToTop";
-import { hostingBadge, type Project } from "@/lib/projects";
+import type { Project } from "@/lib/projects";
 
 type Props = {
   p: Project;
@@ -21,14 +21,12 @@ export default function ProjectDetail({ p, home, projectsBase, backLabel, siblin
         <Link href={`${projectsBase}/`} className="text-sm font-semibold underline underline-offset-4" style={{ color: "var(--muted)" }}>
           ← {backLabel}
         </Link>
-        <p className="prose-wrap mt-4 text-xs sm:text-sm" style={{ color: "var(--muted)" }}>{p.period} · {p.role} · {p.org}</p>
         <h1 className="h1-fluid mt-2 font-extrabold">{p.title}</h1>
         <p className="mt-2 max-w-2xl text-balance text-base sm:text-lg" style={{ color: "var(--muted)" }}>{p.tagline}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">{p.tags.map((t) => <span key={t} className="tag">{t}</span>)}</div>
-        <p className="prose-wrap mt-3 text-xs sm:text-sm" style={{ color: "var(--muted)" }}>{hostingBadge(p.demo.hosting)}</p>
         <div className="mt-4 grid grid-cols-1 gap-2 min-[480px]:grid-cols-2 sm:flex sm:flex-wrap">
           {p.links.live ? <a className="btn-primary text-sm" href={p.links.live} target="_blank" rel="noreferrer">Live</a> : null}
-          {p.links.code && p.links.code !== "TODO" ? <a className="btn-secondary break-all text-sm" href={p.links.code} target="_blank" rel="noreferrer">Code</a> : null}
+          {p.links.code && p.links.code !== "TODO" ? <a className="btn-secondary break-all text-sm" href={p.links.code} target="_blank" rel="noreferrer">GitHub</a> : null}
         </div>
         {p.hasCover ? (
           <figure className="card mt-6 min-w-0 overflow-hidden">
@@ -46,10 +44,6 @@ export default function ProjectDetail({ p, home, projectsBase, backLabel, siblin
         ) : null}
         <div className="card prose-wrap mt-6 min-w-0 p-4 text-sm leading-relaxed sm:p-5 sm:text-[0.95rem]">
           <ReactMarkdown>{p.body}</ReactMarkdown>
-        </div>
-        <div className="card prose-wrap mt-4 min-w-0 p-4 text-sm sm:p-5">
-          <h2 className="font-bold">Summary</h2>
-          <p className="mt-1 leading-relaxed">{p.summary}</p>
           {p.versions ? (
             <>
               <h2 className="mt-4 font-bold">Version history</h2>

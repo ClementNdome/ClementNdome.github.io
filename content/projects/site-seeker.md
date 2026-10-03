@@ -8,7 +8,7 @@ tags: [Next.js, PostGIS, Leaflet, Location intelligence]
 role: Sole developer
 org: Personal project
 period: Jan 2026 – May 2026
-summary: PostGIS-powered retail intelligence for Kenya across 9 analysis modes and 11 map layers, with JWT auth, English/Swahili support, SACCO groups, M-Pesa payments, USSD field access, PDF reports and side-by-side comparison of up to 3 sites.
+summary: PostGIS-powered retail intelligence for Kenya across 9 analysis modes and 11 map layers, with JWT auth, English/Swahili support, SACCO groups,  payments, USSD field access, PDF reports and side-by-side comparison of up to 3 sites.
 problem: Retailers choose sites without unified spatial evidence.
 outcome:
   - text: Live platform unifying 9 analyses and 11 layers in one panel

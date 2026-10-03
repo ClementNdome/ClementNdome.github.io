@@ -57,7 +57,7 @@ export default async function LensProjectsIndex({ params }: { params: Promise<{ 
   // NOTE: lenses filtered server-side here — the public filter stays tags-only.
   const items: ProjectFilterItem[] = getAllProjects()
     .filter((p) => p.status !== "private" && (p.lenses as string[]).includes(lensKey))
-    .map((p) => ({ slug: p.slug, title: p.title, tagline: p.tagline, period: String(p.period), tags: [...p.tags] }));
+    .map((p) => ({ slug: p.slug, title: p.title, tagline: p.tagline, tags: [...p.tags] }));
   const projectsBase = `/${lensKey}/projects`;
   return (
     <div className="flex min-h-dvh min-w-0 flex-col">

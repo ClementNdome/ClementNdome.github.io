@@ -6,7 +6,6 @@ export type ProjectFilterItem = {
   slug: string;
   title: string;
   tagline: string;
-  period: string;
   tags: string[];
 };
 
@@ -65,8 +64,7 @@ export default function ProjectFilter({ projects, projectsBase = "/projects" }: 
       </p>
       <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {visible.map((p) => (
-          <Link key={p.slug} href={`${projectsBase}/${p.slug}/`} className="card block h-full min-w-0 p-4 transition-transform hover:-translate-y-0.5 sm:p-5">
-            <p className="prose-wrap text-xs font-semibold sm:text-sm" style={{ color: "var(--muted)" }}>{p.period}</p>
+          <Link key={p.slug} href={`${projectsBase}/${p.slug}/`} aria-label={`View ${p.title} case study`} className="card block h-full min-w-0 p-4 transition-transform hover:-translate-y-0.5 sm:p-5">
             <h2 className="prose-wrap mt-1 text-balance font-bold">{p.title}</h2>
             <p className="prose-wrap clamp-2 mt-1 text-sm" style={{ color: "var(--muted)" }}>{p.tagline}</p>
           </Link>

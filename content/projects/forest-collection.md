@@ -2,7 +2,7 @@
 slug: forest-collection
 title: Forest data collection system
 tagline: Cross-platform forest data collection with Flutter and Firebase.
-status: repo-only
+status: private
 lenses: [general]
 tags: [Flutter, Firebase, WebGIS]
 role: Sole developer

@@ -2,7 +2,7 @@
 slug: anfis-rs
 title: ANFIS for heterogeneous RS inputs
 tagline: Custom neuro-fuzzy predictions served via web services.
-status: repo-only
+status: private
 lenses: [gis-rs]
 tags: [ANFIS, Remote Sensing, API]
 role: Sole developer

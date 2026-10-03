@@ -19,15 +19,12 @@ outcome:
     source: owner-update
 links:
   live: https://fleets-rouge.vercel.app/
-  code: TODO
+  code: null
 demo:
   hosting: vercel
 media:
   cover: /projects/fleet-guard/cover.png
   gallery: []
   video: null
-draft: true
 ---
-Vehicles broadcast positions every 2 seconds over Socket.IO with smooth interpolated markers, 5-second polling fallback and 1-hour history trails. Operators draw geofence polygons with per-zone SMS or M-Pesa alerts checked server-side every 30 seconds, search places via Mapbox geocoding, find the nearest vehicle to any click, and view delay and rating heatmaps plus clickable county overlays with vehicle counts. SACCOs get member roles, invitations, prepaid wallets with M-Pesa STK top-ups and subscription plans, alongside maintenance scheduling, proof of delivery with M-Pesa codes, driver leaderboards, surge pricing zones, ride matching, insurance quotes and policies, SMS alerts and a USSD gateway for non-smartphone users.
-
-TODO: repo link, screenshots, whether demo data is simulated.
+Vehicles broadcast positions every 2 seconds over Socket.IO with smooth interpolated markers, 5-second polling fallback and 1-hour history trails. Operators draw geofence polygons with per-zone SMS or M-Pesa alerts checked server-side every 30 seconds, search places via Mapbox geocoding, find the nearest vehicle to any click, and view delay and rating heatmaps plus clickable county overlays with vehicle counts. SACCOs get member roles, invitations, prepaid wallets with M-Pesa STK top-ups and subscription plans, alongside maintenance scheduling, proof of delivery with M-Pesa codes, driver leaderboards, surge pricing zones, ride matching, insurance quotes and policies, SMS alerts and a USSD gateway for non-smartphone users. Demo runs on simulated fleet positions for evaluation.

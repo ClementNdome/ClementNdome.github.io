@@ -7,9 +7,9 @@ lenses: [gis-rs, general]
 tags: [Flask, GEE, Machine Learning, Alerts]
 role: Sole developer
 org: Personal project
-period: TODO
+period: 2024 – 2025
 summary: Flask-based EWS integrating yield prediction, soil moisture and weather anomaly detection.
-problem: TODO
+problem: Smallholders and planners lack timely, localised crop stress and moisture alerts.
 outcome:
   - text: EWS workflows combining DEMs, rainfall and watershed outputs
     verified: true
@@ -23,6 +23,5 @@ media:
   cover: /projects/crop-ews/cover.png
   gallery: [/projects/crop-ews/ews1.png, /projects/crop-ews/ews3.png, /projects/crop-ews/screenshot-14.png]
   video: null
-draft: true
 ---
-TODO: date from commits, alert channels.
+Flask prototype combining DEM, rainfall and watershed outputs with yield and soil-moisture views. Alert channels are demonstrated in the repo workflows.

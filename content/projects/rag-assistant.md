@@ -23,8 +23,5 @@ media:
   cover: /projects/rag-assistant/cover.png
   gallery: []
   video: null
-draft: true
 ---
-Local hits answer first with chat history, feedback buttons and input validation; web and social searches fire in parallel only when local info falls short, keeping latency at 3–8 seconds on free DDGS tiers. Applicable beyond aviation to early-warning bulletin dissemination and policy knowledge systems.
-
-TODO: evaluation notes, if any.
+Local hits answer first with chat history, feedback buttons and input validation; web and social searches fire in parallel only when local info falls short, keeping latency at 3–8 seconds on free DDGS tiers. Applicable beyond aviation to early-warning bulletin dissemination and policy knowledge systems. No formal retrieval evaluation published yet; answers always carry source citations for manual verification.

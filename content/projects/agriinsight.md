@@ -24,6 +24,4 @@ media:
   gallery: []
   video: null
 ---
-Users define farm areas on an interactive map, analyze crop health using satellite-derived vegetation indices from Google Earth Engine, and receive AI-powered recommendations for yield optimization, irrigation, and sustainable practices.
-
-TODO: screenshots, data sources, real users/outcome.
+Users define farm areas on an interactive map, analyze crop health using satellite-derived vegetation indices from Google Earth Engine, and receive AI-powered recommendations for yield optimization, irrigation, and sustainable practices. Vegetation indices are computed from public satellite composites; farm boundaries and demo outputs are sample data.

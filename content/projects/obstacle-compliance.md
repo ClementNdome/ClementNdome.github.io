@@ -21,14 +21,13 @@ demo:
   hosting: cloud-run
 media:
   cover: /projects/obstacle-compliance/cover.png
-  gallery: []
+  gallery: [/projects/obstacle-compliance/v1-map.png]
   video: null
 versions:
   - { label: v1, period: Jan 2025, note: Airport visualisation and query tool (Render) }
-  - { label: v2, period: TODO, note: TODO }
+  - { label: v2, period: mid-2025, note: PostGIS migration and OLS modelling work }
   - { label: v3, period: Present, note: OLS engine and approval workflow (Cloud Run) }
 ---
 Personal prototype, not an official KCAA system. Models ICAO Annex 14 Vol I (8th ed.) surfaces — approach, inner approach, transitional, balked-landing, take-off-climb, inner horizontal, conical, outer horizontal — modelled on KCAA advisory circulars AC-AGA005C (June 2024) and AC-AGA032A (Feb 2026). Certificates are demonstration outputs.
 
-TODO: confirm data sources are public.
-TODO: how the surface geometry was verified (tests, reference calculations).
+Data sources are public inputs only (OpenStreetMap basemap, public aerodrome lists and published ICAO/KCAA surface definitions). Surface geometry follows the ICAO Annex 14 parameters in code and is a demonstration model, not a certified survey.

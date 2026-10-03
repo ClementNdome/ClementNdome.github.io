@@ -7,9 +7,9 @@ lenses: [gis-rs]
 tags: [Remote Sensing, Scikit-learn, TensorFlow, WebGIS]
 role: Sole developer
 org: Personal project
-period: TODO
+period: 2024 – 2025
 summary: Vegetation indices plus agro-climatic data with statistical and ML models and a WebGIS dashboard.
-problem: TODO
+problem: Food-security planners need pre-harvest maize outlooks without waiting for field reports.
 outcome:
   - text: Yield outlook maps from RS plus ML models
     verified: true
@@ -23,6 +23,5 @@ media:
   cover: /projects/maize-yield/cover.png
   gallery: [/projects/maize-yield/maize2.png]
   video: null
-draft: true
 ---
-TODO: date from commits.
+Vegetation-index time series plus agro-climatic features feed statistical and ML yield models, with outlook maps served in a WebGIS dashboard. Repo documents the modelling notebooks and data inputs.

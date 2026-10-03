@@ -19,15 +19,12 @@ outcome:
     source: owner-readme-dump
 links:
   live: https://site-seeker.spationex.com/
-  code: TODO
+  code: null
 demo:
   hosting: other
 media:
   cover: /projects/site-seeker/cover.png
   gallery: []
   video: null
-draft: true
 ---
-Modes cover polygon, buffer, cluster, franchise territories, retail leakage, supplier search, demographic forecast, site tours and partnership matching over competitors, demographics, traffic nodes, land use, foot traffic, roads, informal markets, commercial plots, community pins, suppliers and partnerships. Community members can submit opportunity and problem pins, groups manage wallets and invitations, and reports save, export to PDF and compare. Next.js 16 with TypeScript and Tailwind, Leaflet with draw tools, PostGIS on Aiven (SRID 4326), tested with Vitest.
-
-TODO: repo link, screenshots, data sources.
+Modes cover polygon, buffer, cluster, franchise territories, retail leakage, supplier search, demographic forecast, site tours and partnership matching over competitors, demographics, traffic nodes, land use, foot traffic, roads, informal markets, commercial plots, community pins, suppliers and partnerships. Community members can submit opportunity and problem pins, groups manage wallets and invitations, and reports save, export to PDF and compare. Next.js 16 with TypeScript and Tailwind, Leaflet with draw tools, PostGIS on Aiven (SRID 4326), tested with Vitest. Demo uses curated sample data for competitors, demographics and traffic layers.

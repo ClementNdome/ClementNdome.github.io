@@ -2,7 +2,7 @@
 slug: forbspace-navigator
 title: ForbSpace Navigator
 tagline: HTML directions-to-office app with Mapbox realtime navigation.
-status: live
+status: private
 lenses: [web]
 tags: [Mapbox, Navigation, HTML]
 role: Contributor

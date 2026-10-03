@@ -1,12 +1,21 @@
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
+import { GithubIcon } from "./icons";
 import type { Project } from "@/lib/projects";
 
-export default function ProjectCard({ p, projectsBase = "/projects" }: { p: Project; projectsBase?: string }) {
+export type ProjectCardData = Pick<Project, "slug" | "title" | "tagline" | "tags" | "hasCover"> & {
+  media: { cover: string };
+  links: { live?: string | null; code?: string | null };
+};
+
+export default function ProjectCard({ p, projectsBase = "/projects", showActions = false }: { p: ProjectCardData; projectsBase?: string; showActions?: boolean }) {
   const href = `${projectsBase}/${p.slug}/`;
   const tags = p.tags.slice(0, 3);
+  const showLive = Boolean(p.links.live);
+  const showCode = Boolean(p.links.code) && p.links.code !== "TODO";
   return (
-    <article className="card min-w-0 overflow-hidden transition-transform hover:-translate-y-0.5">
-      <a href={href} aria-label={`View ${p.title} case study`} className="flex min-w-0 items-center gap-3 p-3 sm:gap-4 sm:p-4">
+    <article className="card flex h-full min-w-0 flex-col overflow-hidden transition-transform hover:-translate-y-0.5">
+      <a href={href} aria-label={`View ${p.title} case study`} className="flex min-w-0 flex-1 items-center gap-3 p-3 sm:gap-4 sm:p-4">
         {p.hasCover ? (
           <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-lg border sm:h-24 sm:w-36" style={{ borderColor: "var(--border)" }}>
             <Image
@@ -31,6 +40,20 @@ export default function ProjectCard({ p, projectsBase = "/projects" }: { p: Proj
           <div className="mt-1.5 flex flex-wrap gap-1">{tags.map((t) => <span key={t} className="tag">{t}</span>)}</div>
         </div>
       </a>
+      {showActions && (showLive || showCode) ? (
+        <div className="flex flex-wrap gap-2 px-3 pb-3 sm:px-4 sm:pb-4">
+          {showLive ? (
+            <a className="btn-compact text-[13px]" href={p.links.live!} target="_blank" rel="noreferrer">
+              <ExternalLink size={13} className="shrink-0" /> Live
+            </a>
+          ) : null}
+          {showCode ? (
+            <a className="btn-compact break-all text-[13px]" href={p.links.code!} target="_blank" rel="noreferrer">
+              <GithubIcon size={13} /> GitHub
+            </a>
+          ) : null}
+        </div>
+      ) : null}
     </article>
   );
 }

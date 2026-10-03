@@ -28,7 +28,7 @@ export default function ProjectsIndex() {
   // NOTE: general lens scope applied server-side here — the public filter stays tags-only.
   const items: ProjectFilterItem[] = getAllProjects()
     .filter((p) => p.status !== "private" && (p.lenses as string[]).includes("general"))
-    .map((p) => ({ slug: p.slug, title: p.title, tagline: p.tagline, tags: [...p.tags] }));
+    .map((p) => ({ slug: p.slug, title: p.title, tagline: p.tagline, tags: [...p.tags], cover: p.media.cover, hasCover: p.hasCover, live: p.links.live ?? null, code: p.links.code ?? null, body: p.body, gallery: [...p.media.gallery], versions: p.versions }));
   return (
     <div className="flex min-h-dvh min-w-0 flex-col">
       <Nav home="/" showSections={false} />

@@ -13,6 +13,50 @@ type Props = {
   siblings?: Project[];
 };
 
+type BodyData = Pick<Project, "slug" | "title" | "tagline" | "tags" | "body" | "hasCover"> & {
+  media: { cover: string; gallery: string[] };
+  links: { live?: string | null; code?: string | null };
+  versions?: { label: string; period: string; note: string }[];
+};
+
+export function ProjectDetailBody({ p, headingId, titleAsH1 = false, singleImage = false }: { p: BodyData; headingId?: string; titleAsH1?: boolean; singleImage?: boolean }) {
+  const Title = titleAsH1 ? "h1" : "h2";
+  return (
+    <>
+      <Title id={headingId} className={`${titleAsH1 ? "h1-fluid" : "h2-fluid"} scroll-mt-24 font-extrabold`}>{p.title}</Title>
+      <p className="mt-2 max-w-2xl text-balance text-base sm:text-lg" style={{ color: "var(--muted)" }}>{p.tagline}</p>
+      <div className="mt-3 flex flex-wrap gap-1.5">{p.tags.map((t) => <span key={t} className="tag">{t}</span>)}</div>
+      <div className="mt-4 grid grid-cols-1 gap-2 min-[480px]:grid-cols-2 sm:flex sm:flex-wrap">
+        {p.links.live ? <a className="btn-primary text-sm" href={p.links.live} target="_blank" rel="noreferrer">Live</a> : null}
+        {p.links.code && p.links.code !== "TODO" ? <a className="btn-secondary break-all text-sm" href={p.links.code} target="_blank" rel="noreferrer">GitHub</a> : null}
+      </div>
+      {p.hasCover ? (
+        <figure className="card mt-6 min-w-0 overflow-hidden">
+          <Image src={p.media.cover} alt={`${p.title} screenshot`} width={1200} height={675} style={{ width: "100%", height: "auto" }} />
+        </figure>
+      ) : null}
+      {p.media.gallery.length > 0 && !singleImage ? (
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {p.media.gallery.map((g) => (
+            <figure key={g} className="card min-w-0 overflow-hidden">
+              <Image src={g} alt={`${p.title} screenshot`} width={1200} height={675} style={{ width: "100%", height: "auto" }} />
+            </figure>
+          ))}
+        </div>
+      ) : null}
+      <div className="card prose-wrap mt-6 min-w-0 p-4 text-sm leading-relaxed sm:p-5 sm:text-[0.95rem]">
+        <ReactMarkdown>{p.body}</ReactMarkdown>
+        {p.versions ? (
+          <>
+            <h2 className="mt-4 font-bold">Version history</h2>
+            <ul className="mt-1 list-disc space-y-1 pl-5">{p.versions.map((v) => <li key={v.label} className="prose-wrap">{v.label} · {v.period} — {v.note}</li>)}</ul>
+          </>
+        ) : null}
+      </div>
+    </>
+  );
+}
+
 export default function ProjectDetail({ p, home, projectsBase, backLabel, siblings = [] }: Props) {
   const related = siblings.filter((s) => s.slug !== p.slug).slice(0, 6);
   return (
@@ -22,35 +66,8 @@ export default function ProjectDetail({ p, home, projectsBase, backLabel, siblin
         <Link href={`${projectsBase}/`} className="text-sm font-semibold underline underline-offset-4" style={{ color: "var(--muted)" }}>
           ← {backLabel}
         </Link>
-        <h1 className="h1-fluid mt-2 font-extrabold">{p.title}</h1>
-        <p className="mt-2 max-w-2xl text-balance text-base sm:text-lg" style={{ color: "var(--muted)" }}>{p.tagline}</p>
-        <div className="mt-3 flex flex-wrap gap-1.5">{p.tags.map((t) => <span key={t} className="tag">{t}</span>)}</div>
-        <div className="mt-4 grid grid-cols-1 gap-2 min-[480px]:grid-cols-2 sm:flex sm:flex-wrap">
-          {p.links.live ? <a className="btn-primary text-sm" href={p.links.live} target="_blank" rel="noreferrer">Live</a> : null}
-          {p.links.code && p.links.code !== "TODO" ? <a className="btn-secondary break-all text-sm" href={p.links.code} target="_blank" rel="noreferrer">GitHub</a> : null}
-        </div>
-        {p.hasCover ? (
-          <figure className="card mt-6 min-w-0 overflow-hidden">
-            <Image src={p.media.cover} alt={`${p.title} screenshot`} width={1200} height={675} style={{ width: "100%", height: "auto" }} />
-          </figure>
-        ) : null}
-        {p.media.gallery.length > 0 ? (
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {p.media.gallery.map((g) => (
-              <figure key={g} className="card min-w-0 overflow-hidden">
-                <Image src={g} alt={`${p.title} screenshot`} width={1200} height={675} style={{ width: "100%", height: "auto" }} />
-              </figure>
-            ))}
-          </div>
-        ) : null}
-        <div className="card prose-wrap mt-6 min-w-0 p-4 text-sm leading-relaxed sm:p-5 sm:text-[0.95rem]">
-          <ReactMarkdown>{p.body}</ReactMarkdown>
-          {p.versions ? (
-            <>
-              <h2 className="mt-4 font-bold">Version history</h2>
-              <ul className="mt-1 list-disc space-y-1 pl-5">{p.versions.map((v) => <li key={v.label} className="prose-wrap">{v.label} · {v.period} — {v.note}</li>)}</ul>
-            </>
-          ) : null}
+        <div className="mt-2">
+          <ProjectDetailBody p={p} titleAsH1 />
         </div>
         {related.length > 0 ? (
           <div className="card mt-4 min-w-0 p-4 text-sm sm:p-5">

@@ -1,12 +1,19 @@
 "use client";
 import * as React from "react";
-import Link from "next/link";
+import { ProjectDetailBody } from "./ProjectDetail";
 
 export type ProjectFilterItem = {
   slug: string;
   title: string;
   tagline: string;
   tags: string[];
+  cover: string;
+  hasCover: boolean;
+  live: string | null;
+  code: string | null;
+  body: string;
+  gallery: string[];
+  versions?: { label: string; period: string; note: string }[];
 };
 
 const TAG_ALIASES: Record<string, string> = {
@@ -62,12 +69,20 @@ export default function ProjectFilter({ projects, projectsBase = "/projects" }: 
       <p aria-live="polite" className="mt-3 text-sm" style={{ color: "var(--muted)" }}>
         Showing {visible.length} of {projects.length} projects{selected ? ` tagged “${selected}”` : ""}.
       </p>
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      <div className="mt-6 grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-2">
         {visible.map((p) => (
-          <Link key={p.slug} href={`${projectsBase}/${p.slug}/`} aria-label={`View ${p.title} case study`} className="card block h-full min-w-0 p-4 transition-transform hover:-translate-y-0.5 sm:p-5">
-            <h2 className="prose-wrap mt-1 text-balance font-bold">{p.title}</h2>
-            <p className="prose-wrap clamp-2 mt-1 text-sm" style={{ color: "var(--muted)" }}>{p.tagline}</p>
-          </Link>
+          <article key={p.slug} className="card min-w-0 p-4 sm:p-6">
+            <ProjectDetailBody
+              p={{ slug: p.slug, title: p.title, tagline: p.tagline, tags: p.tags, hasCover: p.hasCover, media: { cover: p.cover, gallery: p.gallery }, links: { live: p.live, code: p.code }, body: p.body, versions: p.versions }}
+              headingId={p.slug}
+              singleImage
+            />
+            <p className="mt-3 text-[13px]">
+              <a href={`${projectsBase}/${p.slug}/`} className="font-semibold underline underline-offset-4" style={{ color: "var(--muted)" }}>
+                Standalone page ↗
+              </a>
+            </p>
+          </article>
         ))}
       </div>
     </div>

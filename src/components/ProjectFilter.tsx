@@ -18,7 +18,7 @@ function displayTag(tag: string) {
   return TAG_ALIASES[tag] ?? tag;
 }
 
-export default function ProjectFilter({ projects }: { projects: ProjectFilterItem[] }) {
+export default function ProjectFilter({ projects, projectsBase = "/projects" }: { projects: ProjectFilterItem[]; projectsBase?: string }) {
   const [selected, setSelected] = React.useState<string | null>(null);
 
   const allTags = React.useMemo(() => {
@@ -65,7 +65,7 @@ export default function ProjectFilter({ projects }: { projects: ProjectFilterIte
       </p>
       <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {visible.map((p) => (
-          <Link key={p.slug} href={`/projects/${p.slug}/`} className="card block h-full min-w-0 p-4 transition-transform hover:-translate-y-0.5 sm:p-5">
+          <Link key={p.slug} href={`${projectsBase}/${p.slug}/`} className="card block h-full min-w-0 p-4 transition-transform hover:-translate-y-0.5 sm:p-5">
             <p className="prose-wrap text-xs font-semibold sm:text-sm" style={{ color: "var(--muted)" }}>{p.period}</p>
             <h2 className="prose-wrap mt-1 text-balance font-bold">{p.title}</h2>
             <p className="prose-wrap clamp-2 mt-1 text-sm" style={{ color: "var(--muted)" }}>{p.tagline}</p>

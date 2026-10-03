@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ExternalLink, Code2 } from "lucide-react";
 import { hostingBadge, type Project } from "@/lib/projects";
 
-export default function ProjectCard({ p }: { p: Project }) {
+export default function ProjectCard({ p, projectsBase = "/projects" }: { p: Project; projectsBase?: string }) {
   return (
     <article className="card flex h-full min-w-0 flex-col overflow-hidden">
       {p.hasCover ? (
@@ -45,7 +45,7 @@ export default function ProjectCard({ p }: { p: Project }) {
               <Code2 size={14} className="shrink-0" /> Code
             </a>
           ) : null}
-          <Link className="btn-secondary text-sm" href={`/projects/${p.slug}/`}>Case study</Link>
+          <Link className="btn-secondary text-sm" href={`${projectsBase}/${p.slug}/`}>Case study</Link>
         </div>
       </div>
     </article>

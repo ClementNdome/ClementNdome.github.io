@@ -41,7 +41,7 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h2 className="h2-fluid font-extrabold">Featured projects</h2>
             <a href={`${projectsBase}/`} className="text-sm font-semibold underline underline-offset-4" style={{ color: "var(--muted)" }}>
-              View all {lens.label} projects
+              {lensKey === "general" ? "View all projects" : `View all ${lens.label} projects`}
             </a>
           </div>
           <div className="mt-4 grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2 2xl:grid-cols-4">

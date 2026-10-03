@@ -37,7 +37,7 @@ export default function Contact({ formspree, email, availability, schedulingUrl,
         <p className="prose-wrap mt-2 text-sm leading-relaxed sm:text-base">
           Have a project in mind? Email me at <a className="underline break-all" href={`mailto:${email}`}>{email}</a>
           {schedulingUrl ? (
-            <> or <a className="font-semibold underline underline-offset-4" href={schedulingUrl} target="_blank" rel="noreferrer"><Calendar size={14} className="mr-1 inline shrink-0" />Book a 30-min call ↗</a></>
+            <> or <a className="font-semibold underline underline-offset-4" href={schedulingUrl} target="_blank" rel="noreferrer"><Calendar size={14} className="mr-1 inline shrink-0" />Book a project consultation ↗</a></>
           ) : null}
           {/* <span style={{ color: "var(--muted)" }}> — I typically reply within 24 hours.</span> */}
         </p>
@@ -65,7 +65,7 @@ export default function Contact({ formspree, email, availability, schedulingUrl,
             </div>
           </form>
           {widgetUrl ? (
-            <div className="card relative min-w-0 overflow-hidden p-2" style={{ borderColor: "var(--border)" }}>
+            <div className="card relative min-w-0 overflow-hidden p-1" style={{ borderColor: "var(--border)" }}>
               <p aria-hidden="true" className="absolute inset-0 p-4 text-sm" style={{ color: "var(--muted)" }}>
                 Loading scheduler…
               </p>

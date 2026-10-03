@@ -7,7 +7,7 @@
     "cv": "https://docs.google.com/document/d/17f-MGBPsrAuxEAoMKqTj4nzQ0-Z-QEnMjTVafCo7550/edit?usp=sharing",
     "accent": "green",
     "featuredProjects": ["obstacle-compliance", "agriinsight", "site-seeker", "rag-assistant"],
-    "skillOrder": ["sdi", "appdev", "enterprise-gis", "rs", "aiml", "frontend", "devops-field"],
+    "skillOrder": ["sdi", "appdev", "geodl", "genai", "enterprise-gis", "rs", "frontend", "devops-field"],
     "experienceFilter": ["general", "web"]
   },
   "gis-rs": {
@@ -18,7 +18,7 @@
     "cv": "https://docs.google.com/document/d/1J-qXY7kkY3H4u3WCwlN3s8KpF0hQa-zqnqovDdsoSTs/edit?usp=sharing",
     "accent": "green",
     "featuredProjects": ["agriinsight", "crop-ews", "maize-yield", "obstacle-compliance"],
-    "skillOrder": ["rs", "sdi", "aiml", "enterprise-gis", "appdev", "devops-field", "frontend"],
+    "skillOrder": ["rs", "geodl", "enterprise-gis", "sdi", "appdev", "devops-field", "frontend", "genai"],
     "experienceFilter": ["general", "gis-rs"]
   },
   "web": {
@@ -29,7 +29,7 @@
     "cv": "https://docs.google.com/document/d/1WfUca1t2A5v_7NTW38MdGeBYARJgO6VEjYqu493odes/edit?usp=sharing",
     "accent": "blue",
     "featuredProjects": ["obstacle-compliance", "site-seeker", "fleet-guard", "asset-management"],
-    "skillOrder": ["frontend", "sdi", "appdev", "enterprise-gis", "devops-field", "rs", "aiml"],
+    "skillOrder": ["frontend", "appdev", "sdi", "enterprise-gis", "geodl", "genai", "rs", "devops-field"],
     "experienceFilter": ["general", "web"]
   }
 }

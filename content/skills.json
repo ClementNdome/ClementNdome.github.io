@@ -24,14 +24,20 @@
     "evidence": ["agriinsight", "crop-ews", "maize-yield"]
   },
   {
-    "id": "aiml",
-    "title": "AI / ML for GIS",
-    "items": ["Random Forest + CNN land-cover (85% accuracy)", "RAG + ChromaDB (grounded, citation-backed)", "ANFIS for heterogeneous RS inputs", "Ground-truth curation + augmentation"],
-    "evidence": ["rag-assistant", "maize-yield", "crop-ews"]
+    "id": "geodl",
+    "title": "GeoAI & Deep Learning for Remote Sensing",
+    "items": ["Random Forest + classical ML for land-cover", "ANN / CNN for crop and land-cover signals", "SegFormer / transformer segmentation", "ANFIS for heterogeneous RS inputs", "Ground-truth curation + augmentation"],
+    "evidence": ["maize-yield", "crop-ews"]
+  },
+  {
+    "id": "genai",
+    "title": "Applied AI Assistants",
+    "items": ["RAG + ChromaDB (grounded, citation-backed)", "LangChain + Groq Llama pipelines", "PDF chunking + embeddings", "Gated web and social retrieval"],
+    "evidence": ["rag-assistant"]
   },
   {
     "id": "frontend",
-    "title": "Frontend & Visualization",
+    "title": "WebGIS & Frontend",
     "items": ["Leaflet / Mapbox / OpenLayers", "Next.js + Tailwind + TypeScript", "Power BI dashboards", "Mobile-first interactive maps"],
     "evidence": ["obstacle-compliance", "site-seeker", "fleet-guard", "asset-management"]
   },

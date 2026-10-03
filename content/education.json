@@ -12,7 +12,7 @@
       "evidence": "https://drive.google.com/file/d/1UYnfV26JpAGqZWGDeyztBLpLxNfyfXR2/view"
     },
     {
-      "title": "Spatial Data Science: The New Frontier in Analytics",
+      "title": "ESRI GIS certifications",
       "org": "ESRI",
       "issued": "Nov 2022",
       "evidence": "https://drive.google.com/file/d/1wHhhWMagS8meIqk9SLe1kY8S0oHxBBIq/view"
@@ -24,13 +24,6 @@
       "org": "Dedan Kimathi University of Technology",
       "period": "Dec 2022 – Jan 2024",
       "detail": "Led workshops on GIS programming, WebGIS, and Spatial Machine Learning."
-    }
-  ],
-  "initiatives": [
-    {
-      "title": " Contributing developer, SpatioNEX",
-      "period": "2025 – Present",
-      "detail": "contributing developemt on AI & GIS-driven environmental intelligence tools. "
     }
   ]
 }

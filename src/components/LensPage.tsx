@@ -15,7 +15,7 @@ type Props = {
   lensKey: string;
   lens: Lens;
   profile: {
-    name: string; location: string; email: string; currently: string; availability?: string;
+    name: string; location: string; email: string; currently: string; availability?: string; calendly?: string;
     socials: { github: string; linkedin: string; devstory: string; spationex: string };
     formspree: string;
   };
@@ -77,7 +77,7 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
             </div>
           </section>
         ) : null}
-        <Contact formspree={profile.formspree} email={profile.email} availability={profile.availability} />
+        <Contact formspree={profile.formspree} email={profile.email} availability={profile.availability} schedulingUrl={profile.calendly} accent={lens.accent} />
       </main>
       <Footer github={profile.socials.github} linkedin={profile.socials.linkedin} devstory={profile.socials.devstory} spationex={profile.socials.spationex} />
       <BackToTop />

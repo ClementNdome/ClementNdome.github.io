@@ -16,17 +16,21 @@ export default function Education({ edu }: { edu: Edu }) {
         {edu.degree.detail ? (
           <p className="prose-wrap mt-1 text-sm">{edu.degree.detail}</p>
         ) : null}
-      </div>
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-        {edu.certifications.map((c) => (
-          <div key={c.title} className="card flex min-w-0 flex-col p-4 sm:p-5">
-            <h3 className="prose-wrap text-balance text-sm font-bold sm:text-base">{c.title}</h3>
-            <p className="prose-wrap mt-0.5 text-xs sm:text-sm" style={{ color: "var(--muted)" }}>{c.org} · {c.issued}</p>
-            <a className="btn-compact mt-3 w-fit" href={c.evidence} target="_blank" rel="noreferrer">
-              View credential
-            </a>
+        {edu.certifications.length > 0 ? (
+          <div className="mt-3 border-t pt-3" style={{ borderColor: "var(--border)" }}>
+            <h4 className="text-[13px] font-bold">Certifications</h4>
+            <ul className="mt-1.5 space-y-1.5 text-sm leading-relaxed">
+              {edu.certifications.map((c) => (
+                <li key={c.title} className="prose-wrap min-w-0">
+                  <strong>{c.title}</strong> <span style={{ color: "var(--muted)" }}>· {c.org} · {c.issued}</span>{" "}
+                  <a className="font-semibold underline underline-offset-4" style={{ color: "var(--muted)" }} href={c.evidence} target="_blank" rel="noreferrer">
+                    View credential ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
+        ) : null}
       </div>
       {edu.leadership.length > 0 ? (
         <div className="card mt-4 min-w-0 p-4 sm:p-5">

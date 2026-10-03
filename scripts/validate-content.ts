@@ -73,15 +73,18 @@ for (const f of files) {
     if (!o.verified) err(`Unverified outcome in ${f}: "${o.text}"`);
   }
   if (p.status === "live" && !p.links?.live) warn(`${f}: status live without live link`);
-  if (!p.media?.cover) warn(`${f}: no cover image`);
-  else if (typeof p.media.cover === "string" && p.media.cover.startsWith("/projects/")) {
-    const coverFile = path.join(root, "public", ...p.media.cover.replace(/^\//, "").split("/"));
-    if (!fs.existsSync(coverFile)) warn(`${f}: cover file missing: ${p.media.cover}`);
-  }
-  for (const g of p.media?.gallery ?? []) {
-    if (typeof g === "string" && g.startsWith("/projects/")) {
-      const gf = path.join(root, "public", ...g.replace(/^\//, "").split("/"));
-      if (!fs.existsSync(gf)) warn(`${f}: gallery file missing: ${g}`);
+  const isPrivate = p.status === "private";
+  if (!isPrivate) {
+    if (!p.media?.cover) warn(`${f}: no cover image`);
+    else if (typeof p.media.cover === "string" && p.media.cover.startsWith("/projects/")) {
+      const coverFile = path.join(root, "public", ...p.media.cover.replace(/^\//, "").split("/"));
+      if (!fs.existsSync(coverFile)) warn(`${f}: cover file missing: ${p.media.cover}`);
+    }
+    for (const g of p.media?.gallery ?? []) {
+      if (typeof g === "string" && g.startsWith("/projects/")) {
+        const gf = path.join(root, "public", ...g.replace(/^\//, "").split("/"));
+        if (!fs.existsSync(gf)) warn(`${f}: gallery file missing: ${g}`);
+      }
     }
   }
   if ((p.summary?.length ?? 0) > 400) warn(`${f}: summary long (>400 chars)`);
@@ -90,7 +93,7 @@ for (const f of files) {
   }
   const hasTodo = fullText.includes("TODO:");
   const featuredBy = lensKeys.filter((k) => (lensesRaw[k].featuredProjects as string[]).includes(slug));
-  if (hasTodo && (p.draft || featuredBy.length > 0)) {
+  if (hasTodo && !isPrivate && (p.draft || featuredBy.length > 0)) {
     const msg = `${f} has TODO and is ${p.draft ? "draft" : ""} ${featuredBy.length ? `featured by ${featuredBy.join(",")}` : ""}`;
     if (isProd) {
       if (featuredBy.length > 0 || p.draft) err(`PROD BLOCKER: ${msg}`);
@@ -131,12 +134,39 @@ const navSrc = fs.readFileSync(path.join(root, "src", "components", "Nav.tsx"), 
 if (navSrc.includes('href="/"')) err(`Nav.tsx must not hardcode href="/" — use the home prop`);
 const projectIndex = fs.readFileSync(path.join(root, "src", "app", "projects", "page.tsx"), "utf8");
 const projectSlug = fs.readFileSync(path.join(root, "src", "app", "projects", "[slug]", "page.tsx"), "utf8");
-for (const [name, src] of [["projects/page.tsx", projectIndex], ["projects/[slug]/page.tsx", projectSlug]] as const) {
+const lensProjectIndex = fs.readFileSync(path.join(root, "src", "app", "[lens]", "projects", "page.tsx"), "utf8");
+const lensProjectSlug = fs.readFileSync(path.join(root, "src", "app", "[lens]", "projects", "[slug]", "page.tsx"), "utf8");
+const detailSrc = fs.readFileSync(path.join(root, "src", "components", "ProjectDetail.tsx"), "utf8");
+for (const [name, src] of [["projects/page.tsx", projectIndex], ["[lens]/projects/page.tsx", lensProjectIndex]] as const) {
   for (const a of ["#projects", "#experience", "#skills", "#contact"]) {
     if (src.includes(`"${a}"`) || src.includes(`'${a}'`)) err(`${name} must not contain section anchor ${a}`);
   }
   if (!src.includes("showSections={false}")) err(`${name} must render <Nav> with showSections={false}`);
 }
+// detail templates may delegate to <ProjectDetail> — accept either direct Nav or delegation
+for (const [name, src] of [["projects/[slug]/page.tsx", projectSlug], ["[lens]/projects/[slug]/page.tsx", lensProjectSlug]] as const) {
+  for (const a of ["#projects", "#experience", "#skills", "#contact"]) {
+    if (src.includes(`"${a}"`) || src.includes(`'${a}'`)) err(`${name} must not contain section anchor ${a}`);
+  }
+  const delegates = src.includes("<ProjectDetail");
+  if (!delegates && !src.includes("showSections={false}")) err(`${name} must render <Nav> with showSections={false} or delegate to <ProjectDetail>`);
+}
+for (const [name, src] of [["components/ProjectDetail.tsx", detailSrc]] as const) {
+  for (const a of ["#projects", "#experience", "#skills", "#contact"]) {
+    if (src.includes(`"${a}"`) || src.includes(`'${a}'`)) err(`${name} must not contain section anchor ${a}`);
+  }
+  if (!src.includes("showSections={false}")) err(`${name} must render <Nav> with showSections={false}`);
+}
+// lens detail must stay in-lens: Nav home must be lens route, links must be lens-scoped
+for (const [name, src, home] of [["[lens]/projects/page.tsx", lensProjectIndex, 'home={m.home}'], ["[lens]/projects/[slug]/page.tsx", lensProjectSlug, 'home={lens.route}']] as const) {
+  if (!src.includes(home)) err(`${name} must render <Nav> with lens home (${home})`);
+  if (!src.includes("projectsBase")) err(`${name} must use lens-scoped projectsBase`);
+}
+// lens cards must not hardcode global /projects/ links
+const lensPageSrc = fs.readFileSync(path.join(root, "src", "components", "LensPage.tsx"), "utf8");
+if (lensPageSrc.includes('href={`/projects/')) err(`LensPage.tsx must not hardcode global /projects/ links — use projectsBase`);
+const cardSrc = fs.readFileSync(path.join(root, "src", "components", "ProjectCard.tsx"), "utf8");
+if (!cardSrc.includes("projectsBase")) err(`ProjectCard.tsx must support lens-scoped projectsBase`);
 
 // public filter guard: tags-only, no lens keys in the client filter
 const filterSrc = fs.readFileSync(path.join(root, "src", "components", "ProjectFilter.tsx"), "utf8");

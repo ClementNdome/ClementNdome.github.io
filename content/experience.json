@@ -11,9 +11,7 @@
       { "text": "Leading development of an Aeronautical Information GIS Platform (Django, PostGIS, GeoServer), full SDLC.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" },
       { "text": "Designed and implemented backend architecture using Django, PostGIS, and GeoServer to deliver reliable, standards-compliant geospatial services.", "lenses": ["general", "web"], "source": "master#4.1" },
       { "text": "Integrated heterogeneous spatial and non-spatial datasets and ensured data integrity across internal platforms.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" },
-      { "text": "Automated geospatial validation and processing workflows, improving data reliability and reducing manual errors.", "lenses": ["general", "gis-rs"], "source": "master#4.1" },
-      { "text": "Translated Francophone AIP datasets (Senegal, Mali, Congo-Brazzaville) into English, ensuring cross-language data consistency.", "lenses": ["general"], "source": "master#4.1 GIS&data/ASSOCIATE" },
-      { "text": "Created market intelligence maps in ArcGIS Pro to identify customer hotspots, enabling data-driven outreach.", "lenses": ["general", "web"], "source": "master#4.1 GIS&data" },
+      { "text": "Automated geospatial validation and processing workflows, improving data reliability and reducing manual errors.", "lenses": ["general", "gis-rs"], "source": "master#4.1" },      { "text": "Created market intelligence maps in ArcGIS Pro to identify customer hotspots, enabling data-driven outreach.", "lenses": ["general", "web"], "source": "master#4.1 GIS&data" },
       { "text": "Mentored junior staff on GIS data standards and system development practices.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" }
     ]
   },

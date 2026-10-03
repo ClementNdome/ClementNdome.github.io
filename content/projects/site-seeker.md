@@ -1,6 +1,6 @@
 ---
 slug: site-seeker
-title: SiteSeeker — Retail Location Intelligence
+title: SiteSeeker | Retail Location Intelligence
 tagline: Draw a polygon and get competitors, demographics, traffic and revenue estimates in one panel.
 status: live
 lenses: [general, web]

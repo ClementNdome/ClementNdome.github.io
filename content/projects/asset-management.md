@@ -1,6 +1,6 @@
 ---
 slug: asset-management
-title: AssetTrack — Utility Asset Management
+title: AssetTrack | Utility Asset Management
 tagline: Map-based asset inventory, work orders and compliance for utilities in Kenya and East Africa.
 status: live
 lenses: [general, web]

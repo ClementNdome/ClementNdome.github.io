@@ -1,6 +1,6 @@
 ---
 slug: fleet-guard
-title: FleetGuard — Fleet Management Dashboard
+title: FleetGuard | Fleet Management Dashboard
 tagline: Live tracking, geofencing, SACCO management and  payments for Kenyan logistics.
 status: live
 lenses: [general, web]

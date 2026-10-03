@@ -13,9 +13,9 @@ export default function Footer({ github, linkedin, spationex }: { github: string
           className="h-8 w-8 sm:h-9 sm:w-9"
         />
         <div className="flex items-center gap-2">
-          <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub" className="btn-compact !px-3"><GithubIcon size={16} /></a>
-          <a href={linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="btn-compact !px-3"><LinkedinIcon size={16} /></a>
-          <a href={spationex} target="_blank" rel="noreferrer" aria-label="SpatioNEX" className="btn-compact !px-3"><Globe size={16} /></a>
+          <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub" className="btn-compact btn-tight"><GithubIcon size={16} /></a>
+          <a href={linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="btn-compact btn-tight"><LinkedinIcon size={16} /></a>
+          <a href={spationex} target="_blank" rel="noreferrer" aria-label="SpatioNEX" className="btn-compact btn-tight"><Globe size={16} /></a>
         </div>
         <p className="prose-wrap max-w-full text-xs sm:text-sm" style={{ color: "var(--muted)" }}>
           Clement Ndome © {new Date().getFullYear()} · Nairobi, Kenya · Geospatial Software Engineer

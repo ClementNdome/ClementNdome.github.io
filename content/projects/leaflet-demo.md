@@ -2,7 +2,7 @@
 slug: leaflet-demo
 title: Interactive Leaflet Web Maps
 tagline: Leaflet.js capabilities demo with measurement tools and base layers.
-status: live
+status: private
 lenses: [web]
 tags: [Leaflet, JavaScript, WebGIS]
 role: Sole developer

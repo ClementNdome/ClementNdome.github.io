@@ -38,7 +38,7 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
         <Hero lens={lens} lensKey={lensKey} profile={profile} />
         <section id="projects" className="container-x scroll-mt-20 py-4 sm:py-6">
           <h2 className="h2-fluid font-extrabold">Featured projects</h2>
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {featured.map((p) => <ProjectCard key={p.slug} p={p} />)}
           </div>
         </section>

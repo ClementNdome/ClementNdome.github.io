@@ -103,11 +103,144 @@ a, button, input, textarea {
   outline-offset: 2px;
 }
 
-.container-x {
-  margin-inline: auto;
-  width: 100%;
-  max-width: 80rem;
-  padding-inline: 1rem;
+/* Component classes live in the `components` layer so Tailwind's `utilities`
+   layer (hidden, md:flex, md:hidden, px-*, text-*, …) always wins on conflict.
+   (Unlayered author CSS beats layered CSS — without this, e.g.
+   .btn-secondary's display:inline-flex overrides md:hidden.) */
+@layer components {
+  .container-x {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 96rem;
+    padding-inline: 1rem;
+  }
+
+  .h1-fluid {
+    font-size: var(--hero-h1);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .h2-fluid {
+    font-size: var(--section-h2);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.6rem;
+    padding: 0.7rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .btn-secondary {
+    border: 1.5px solid var(--border);
+    border-radius: 0.6rem;
+    padding: 0.7rem 1.2rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    background: transparent;
+    color: var(--foreground);
+  }
+
+  .btn-compact {
+    border: 1.5px solid var(--border);
+    border-radius: 0.55rem;
+    padding: 0.5rem 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 40px;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    background: color-mix(in srgb, var(--card) 85%, transparent);
+    color: var(--foreground);
+  }
+
+  .btn-compact:hover {
+    border-color: var(--accent);
+  }
+
+  /* Tight padding variant (replaces v3-style !px-3 !py-2 utilities) */
+  .btn-tight {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    overflow-wrap: anywhere;
+    max-width: 100%;
+  }
+
+  /* Clickable filter-chip variant (replaces !px-3 !py-2 !text-xs) */
+  .tag-btn {
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.6rem;
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--foreground);
+    padding: 0.7rem 0.9rem;
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  .prose-wrap {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 @media (min-width: 640px) {
@@ -118,125 +251,14 @@ a, button, input, textarea {
   .container-x { padding-inline: 2rem; }
 }
 
-.h1-fluid {
-  font-size: var(--hero-h1);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-  overflow-wrap: break-word;
-}
-
-.h2-fluid {
-  font-size: var(--section-h2);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
-  overflow-wrap: break-word;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  min-width: 0;
-  overflow-wrap: break-word;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 0.6rem;
-  padding: 0.7rem 1.2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 44px;
-  font-size: 0.95rem;
-  line-height: 1.2;
-  max-width: 100%;
-  overflow-wrap: break-word;
-}
-
-.btn-secondary {
-  border: 1.5px solid var(--border);
-  border-radius: 0.6rem;
-  padding: 0.7rem 1.2rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 44px;
-  font-size: 0.95rem;
-  line-height: 1.2;
-  max-width: 100%;
-  overflow-wrap: break-word;
-  background: transparent;
-  color: var(--foreground);
-}
-
-.btn-compact {
-  border: 1.5px solid var(--border);
-  border-radius: 0.55rem;
-  padding: 0.5rem 0.8rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  min-height: 40px;
-  font-size: 0.85rem;
-  line-height: 1.2;
-  max-width: 100%;
-  overflow-wrap: break-word;
-  background: color-mix(in srgb, var(--card) 85%, transparent);
-  color: var(--foreground);
-}
-
-.btn-compact:hover {
-  border-color: var(--accent);
+@media (min-width: 1536px) {
+  .container-x { padding-inline: 2.5rem; }
 }
 
 @media (max-width: 479px) {
   .btn-stack-xs {
     width: 100%;
   }
-}
-
-.tag {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-  overflow-wrap: anywhere;
-  max-width: 100%;
-}
-
-.field {
-  width: 100%;
-  border-radius: 0.6rem;
-  border: 1px solid var(--border);
-  background: var(--background);
-  color: var(--foreground);
-  padding: 0.7rem 0.9rem;
-  font-size: 16px;
-  min-height: 44px;
-}
-
-.prose-wrap {
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-.clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {

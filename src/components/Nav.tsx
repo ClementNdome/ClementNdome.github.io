@@ -76,7 +76,7 @@ export default function Nav({ home = "/", showSections = true }: { home?: string
         </Link>
 
         {showSections ? (
-          <div className="hidden items-center gap-1 text-sm md:flex" role="navigation" aria-label="Sections">
+          <div className="ml-auto hidden items-center gap-1 text-sm md:flex" role="navigation" aria-label="Sections">
             {anchors.map((a) => (
               <a
                 key={a.id}
@@ -89,7 +89,7 @@ export default function Nav({ home = "/", showSections = true }: { home?: string
             ))}
           </div>
         ) : (
-          <div className="hidden items-center md:flex">
+          <div className="ml-auto hidden items-center md:flex">
             <BackButton fallbackHome={home} />
           </div>
         )}
@@ -97,7 +97,7 @@ export default function Nav({ home = "/", showSections = true }: { home?: string
         {showSections ? (
           <button
             type="button"
-            className="btn-secondary !px-3 !py-2 md:hidden"
+            className="btn-secondary btn-tight md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav-panel"
             aria-label={open ? "Close menu" : "Open menu"}

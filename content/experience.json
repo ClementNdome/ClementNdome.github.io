@@ -18,16 +18,29 @@
     ]
   },
   {
-    "id": "personal-projects",
-    "title": "Builder & tool developer",
-    "org": "Personal Projects (SpatioNEX initiative, outside working hours)",
+    "id": "spationex",
+    "title": "Contributing developer",
+    "org": "SpatioNEX",
     "location": "Nairobi, Kenya",
-    "period": "Jan 2025 – Present",
+    "period": "June 2025 – Present",
+    "type": "employment",
+    "note": "Grounded in spationex.com/team/clement-ndome and spationex.com/projects (AgriInsight). Personal apps stay under personal-projects.",
+    "bullets": [
+      { "text": "Contributes to architecture design and systems engineering across SpatioNEX geospatial intelligence platforms.", "lenses": ["general", "web", "gis-rs"], "source": "spationex-team" },
+      { "text": "Contributed to AgriInsight crop-monitoring work, shared between SpatioNEX and personal builds.", "lenses": ["general", "gis-rs"], "source": "spationex-projects" }
+    ]
+  },
+  {
+    "id": "personal-projects",
+    "title": "Contributing developer",
+    "org": "Personal projects",
+    "location": "Nairobi, Kenya",
+    "period": "June 2025 – Present",
     "type": "personal",
     "note": "All projects that are not employment or freelance go here. (master#4.5, plan D10/D11)",
     "bullets": [
-      { "text": "Ships live GIS/web apps on off-days: obstacle-compliance checks, crop health, retail location intelligence, fleet and asset dashboards.", "lenses": ["general", "web", "gis-rs"], "source": "master#4.5" },
-      { "text": "Models ICAO Annex 14 obstacle surfaces as a personal prototype on public data with demonstration certificates (not an official KCAA system).", "lenses": ["general", "web"], "source": "master#4.5/plan-A.3" }
+      { "text": "Ships GIS/web apps: airport obstacle prototype, crop-health monitoring, retail location intelligence, fleet and asset dashboards.", "lenses": ["general", "web", "gis-rs"], "source": "master#4.5" },
+      { "text": "Models ICAO Annex 14 obstacle surfaces as a personal prototype on public data with demo certificates.", "lenses": ["general", "web"], "source": "master#4.5/plan-A.3" }
     ]
   },
   {

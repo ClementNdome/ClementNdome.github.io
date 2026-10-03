@@ -1,6 +1,6 @@
 import { Download, Mail } from "lucide-react";
 import type { Lens } from "@/lib/projects";
-import { GithubIcon, LinkedinIcon, StackOverflowIcon } from "./icons";
+import { GithubIcon, LinkedinIcon } from "./icons";
 
 type Profile = {
   name: string; location: string; email: string; currently: string;
@@ -20,17 +20,14 @@ export default function Hero({ lens, profile }: { lens: Lens; lensKey: string; p
             {lens.subline}
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
-            <a href={`mailto:${profile.email}`} className="btn-compact break-all">
-              <Mail size={14} className="shrink-0" /> Email
+            <a href="#contact" className="btn-compact">
+              <Mail size={14} className="shrink-0" /> Contact me
             </a>
             <a href={profile.socials.github} target="_blank" rel="noreferrer" className="btn-compact">
               <GithubIcon size={14} /> GitHub
             </a>
             <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="btn-compact">
               <LinkedinIcon size={14} /> LinkedIn
-            </a>
-            <a href={profile.socials.devstory} target="_blank" rel="noreferrer" className="btn-compact">
-              <StackOverflowIcon size={14} /> DevStory
             </a>
           </div>
         </div>

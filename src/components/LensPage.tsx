@@ -66,7 +66,7 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
         ) : null}
         <Contact formspree={profile.formspree} email={profile.email} />
       </main>
-      <Footer github={profile.socials.github} linkedin={profile.socials.linkedin} spationex={profile.socials.spationex} />
+      <Footer github={profile.socials.github} linkedin={profile.socials.linkedin} devstory={profile.socials.devstory} spationex={profile.socials.spationex} />
       <BackToTop />
     </div>
   );

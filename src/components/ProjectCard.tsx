@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "./icons";
 import type { Project } from "@/lib/projects";
@@ -11,12 +12,13 @@ export default function ProjectCard({ p, projectsBase = "/projects" }: { p: Proj
     <article className="card flex h-full min-w-0 flex-col overflow-hidden transition-transform hover:-translate-y-0.5">
       <a href={href} aria-label={`View ${p.title} case study`} className="flex min-w-0 flex-1 flex-col">
         {p.hasCover ? (
-          <div className="aspect-video w-full overflow-hidden border-b" style={{ borderColor: "var(--border)" }}>
-            <img
+          <div className="relative aspect-video w-full overflow-hidden border-b" style={{ borderColor: "var(--border)" }}>
+            <Image
               src={p.media.cover}
               alt={`${p.title} screenshot`}
-              loading="lazy"
-              className="h-full w-full object-cover object-top"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+              style={{ objectFit: "cover", objectPosition: "top" }}
             />
           </div>
         ) : (

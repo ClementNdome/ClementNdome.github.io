@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import Nav from "@/components/Nav";
 import BackToTop from "@/components/BackToTop";
@@ -30,14 +31,14 @@ export default function ProjectDetail({ p, home, projectsBase, backLabel, siblin
         </div>
         {p.hasCover ? (
           <figure className="card mt-6 min-w-0 overflow-hidden">
-            <img src={p.media.cover} alt={`${p.title} screenshot`} loading="lazy" className="h-auto w-full object-cover" />
+            <Image src={p.media.cover} alt={`${p.title} screenshot`} width={1200} height={675} style={{ width: "100%", height: "auto" }} />
           </figure>
         ) : null}
         {p.media.gallery.length > 0 ? (
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {p.media.gallery.map((g) => (
               <figure key={g} className="card min-w-0 overflow-hidden">
-                <img src={g} alt={`${p.title} screenshot`} loading="lazy" className="h-auto w-full object-cover" />
+                <Image src={g} alt={`${p.title} screenshot`} width={1200} height={675} style={{ width: "100%", height: "auto" }} />
               </figure>
             ))}
           </div>

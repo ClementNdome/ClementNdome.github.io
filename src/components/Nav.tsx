@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowLeft } from "lucide-react";
 
@@ -65,11 +66,12 @@ export default function Nav({ home = "/", showSections = true }: { home?: string
     <nav className="sticky top-0 z-50 border-b backdrop-blur" style={{ background: "color-mix(in srgb, var(--background) 88%, transparent)", borderColor: "var(--border)" }}>
       <div className="container-x flex min-h-[60px] items-center justify-between gap-3 py-2.5">
         <Link href={home} onClick={onBrandClick} className="flex min-w-0 items-center gap-2 truncate text-base font-bold sm:text-lg">
-          <img
+          <Image
             src="/my-favicon/favicon.svg"
             alt="Clement Ndome logo"
             width={28}
             height={28}
+            priority
             className="h-6 w-6 shrink-0 sm:h-7 sm:w-7"
           />
           <span className="truncate">Clement Ndome</span>

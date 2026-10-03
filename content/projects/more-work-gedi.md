@@ -2,7 +2,7 @@
 slug: more-work-gedi
 title: GEDI LiDAR visualization
 tagline: Canopy height from NASA GEDI with Kepler.gl 3D views.
-status: repo-only
+status: private
 lenses: [gis-rs]
 tags: [GEDI, LiDAR, Kepler.gl]
 role: Sole developer

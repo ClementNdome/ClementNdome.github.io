@@ -2,7 +2,7 @@
 slug: more-work-lulc
 title: LULC classification (GEE)
 tagline: Landsat-based land-cover classification on Google Earth Engine.
-status: repo-only
+status: private
 lenses: [gis-rs]
 tags: [GEE, Landsat, Classification]
 role: Sole developer

@@ -2,7 +2,7 @@
 slug: more-work-agb
 title: Above-ground biomass via indices
 tagline: Spectral-index biomass mapping for productivity and carbon.
-status: repo-only
+status: private
 lenses: [gis-rs]
 tags: [NDVI, EVI, Biomass]
 role: Sole developer

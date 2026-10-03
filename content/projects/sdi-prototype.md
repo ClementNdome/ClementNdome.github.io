@@ -2,7 +2,7 @@
 slug: sdi-prototype
 title: Nyeri County Transport SDI
 tagline: FastAPI + OGC API Features serving Nyeri transport layers from PostGIS.
-status: live
+status: private
 lenses: [general, web]
 tags: [FastAPI, pygeoapi, PostGIS, Redis, Leaflet]
 role: Sole developer

@@ -2,7 +2,7 @@
 slug: schools-locator
 title: Kenya Schools Locator
 tagline: Spatial analytics for education infrastructure coverage and gaps.
-status: live
+status: private
 lenses: [web, general]
 tags: [Flask, PostGIS, Leaflet]
 role: Sole developer

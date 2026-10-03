@@ -2,7 +2,7 @@
 slug: nakuru-watershed
 title: Nakuru watershed modelling
 tagline: SWAT runoff and catchment analysis with floodplain mapping.
-status: repo-only
+status: private
 lenses: [gis-rs]
 tags: [SWAT, DEM, Watershed]
 role: Sole developer

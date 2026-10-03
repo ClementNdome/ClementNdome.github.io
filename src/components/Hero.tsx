@@ -1,4 +1,4 @@
-import { Download, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import type { Lens } from "@/lib/projects";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
@@ -32,19 +32,18 @@ export default function Hero({ lens, profile }: { lens: Lens; lensKey: string; p
           </div>
         </div>
 
-        {/* Quiet CV: right side, de-emphasized, same text on every route */}
-        <aside className="card min-w-0 p-4 sm:p-5 lg:w-64 lg:shrink-0">
-          <p className="text-sm font-bold">Curriculum Vitae</p>
+        {/* Quiet CV: muted text link, same on every route */}
+        <aside className="min-w-0 lg:w-64 lg:shrink-0">
           <a
             href={lens.cv}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-compact mt-3 w-full justify-center"
             aria-label="Download CV (opens Google Drive in a new tab)"
+            className="text-[13px] font-semibold underline underline-offset-4"
+            style={{ color: "var(--muted)" }}
           >
-            <Download size={14} className="shrink-0" /> Download CV
+            Download CV ↗
           </a>
-          <p className="mt-2 text-[11px]" style={{ color: "var(--muted)" }}>Opens in a new tab.</p>
         </aside>
       </div>
     </section>

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Nav from "./Nav";
 import Hero from "./Hero";
 import ProjectCard from "./ProjectCard";
@@ -14,7 +15,7 @@ type Props = {
   lensKey: string;
   lens: Lens;
   profile: {
-    name: string; location: string; email: string; currently: string;
+    name: string; location: string; email: string; currently: string; availability?: string;
     socials: { github: string; linkedin: string; devstory: string; spationex: string };
     formspree: string;
   };
@@ -23,10 +24,9 @@ type Props = {
   roles: { id: string; title: string; org: string; location: string; period: string; type: string; bullets: { text: string; lenses: string[]; source: string }[] }[];
   skillGroups: { id: string; title: string; items: string[]; evidence: string[] }[];
   edu: {
-    degree: { title: string; org: string; period: string; detail: string };
+    degree: { title: string; org: string; period: string; detail?: string };
     certifications: { title: string; org: string; issued: string; evidence: string }[];
     leadership: { title: string; org: string; period: string; detail: string }[];
-    initiatives: { title: string; period: string; detail: string }[];
   };
 };
 
@@ -44,7 +44,7 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
               View all {lens.label} projects
             </a>
           </div>
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <div className="mt-4 grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2 2xl:grid-cols-4">
             {featured.map((p) => <ProjectCard key={p.slug} p={p} projectsBase={projectsBase} />)}
           </div>
         </section>
@@ -54,17 +54,30 @@ export default function LensPage({ lensKey, lens, profile, featured, moreWork, r
         {moreWork.length > 0 ? (
           <section className="container-x py-6 sm:py-8">
             <h2 className="h2-fluid font-extrabold">More work</h2>
-            <div className="card mt-4 divide-y p-1 sm:p-2" style={{ borderColor: "var(--border)" }}>
+            <div className="mt-4 min-w-0 space-y-2.5">
               {moreWork.map((p) => (
-                <a key={p.slug} href={`${projectsBase}/${p.slug}/`} className="flex min-w-0 flex-col gap-0.5 px-3 py-2.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
-                  <span className="prose-wrap min-w-0 font-semibold">{p.title}</span>
-                  <span className="prose-wrap clamp-2 min-w-0 text-sm sm:max-w-[60%] sm:text-right" style={{ color: "var(--muted)" }}>{p.tagline}</span>
+                <a key={p.slug} href={`${projectsBase}/${p.slug}/`} aria-label={`View ${p.title} case study`} className="card flex min-w-0 items-center gap-3 p-2.5 transition-transform hover:-translate-y-0.5">
+                  {p.hasCover ? (
+                    <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-lg border" style={{ borderColor: "var(--border)" }}>
+                      <Image
+                        src={p.media.cover}
+                        alt=""
+                        fill
+                        sizes="56px"
+                        style={{ objectFit: "cover", objectPosition: "top" }}
+                      />
+                    </span>
+                  ) : null}
+                  <span className="min-w-0 flex-1">
+                    <span className="prose-wrap block truncate text-sm font-bold">{p.title}</span>
+                    <span className="prose-wrap block truncate text-[13px]" style={{ color: "var(--muted)" }}>{p.tagline}</span>
+                  </span>
                 </a>
               ))}
             </div>
           </section>
         ) : null}
-        <Contact formspree={profile.formspree} email={profile.email} />
+        <Contact formspree={profile.formspree} email={profile.email} availability={profile.availability} />
       </main>
       <Footer github={profile.socials.github} linkedin={profile.socials.linkedin} devstory={profile.socials.devstory} spationex={profile.socials.spationex} />
       <BackToTop />

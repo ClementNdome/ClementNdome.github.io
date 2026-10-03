@@ -40,11 +40,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lens: str
       type: "website",
       url: m.canonical,
       siteName: "Clement Ndome",
-      title: `${m.title} — Clement Ndome`,
+      title: `${m.title} | Clement Ndome`,
       description: m.description,
       images: [{ url: m.og, width: 1200, height: 630, alt: `${m.title} — Clement Ndome` }],
     },
-    twitter: { card: "summary_large_image", title: `${m.title} — Clement Ndome`, description: m.description, images: [m.og] },
+    twitter: { card: "summary_large_image", title: `${m.title} | Clement Ndome`, description: m.description, images: [m.og] },
   };
 }
 

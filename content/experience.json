@@ -8,9 +8,8 @@
     "type": "employment",
     "note": "Company-owned Aeronautical Information GIS Platform — experience wording and proof chip only. No card, screenshots, links or case study. (master#4.1, plan D8)",
     "bullets": [
-      { "text": "Leading development of an Aeronautical Information GIS Platform (Django, PostGIS, GeoServer), full SDLC.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" },
+      { "text": "Leading development of a company-owned Aeronautical Information GIS Platform (Django, PostGIS, GeoServer), full SDLC from backend architecture to standards-compliant services.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" },
       { "text": "Designed and implemented backend architecture using Django, PostGIS, and GeoServer to deliver reliable, standards-compliant geospatial services.", "lenses": ["general", "web"], "source": "master#4.1" },
-      { "text": "Integrated heterogeneous spatial and non-spatial datasets and ensured data integrity across internal platforms.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" },
       { "text": "Automated geospatial validation and processing workflows, improving data reliability and reducing manual errors.", "lenses": ["general", "gis-rs"], "source": "master#4.1" },      { "text": "Created market intelligence maps in ArcGIS Pro to identify customer hotspots, enabling data-driven outreach.", "lenses": ["general", "web"], "source": "master#4.1 GIS&data" },
       { "text": "Mentored junior staff on GIS data standards and system development practices.", "lenses": ["general", "gis-rs", "web"], "source": "master#4.1" }
     ]
@@ -50,10 +49,8 @@
     "type": "freelance",
     "note": "Decided dates Mar 2024 – Dec 2024 (master#9 item 1-2).",
     "bullets": [
-      { "text": "Designed, built, and deployed GIS and AI-enabled systems using Django, Flask, PostGIS, GeoServer, and Leaflet.", "lenses": ["general", "web", "gis-rs"], "source": "master#4.2" },
-      { "text": "Integrated machine learning models into API-driven GIS backends for predictive spatial analysis.", "lenses": ["general", "gis-rs"], "source": "master#4.2" },
-      { "text": "Developed RESTful geospatial and ML services supporting web and field data collection workflows.", "lenses": ["general", "web"], "source": "master#4.2" },
-      { "text": "Built customized AI components, including RAG-based systems, integrated with structured vector databases.", "lenses": ["general"], "source": "master#4.2" },
+      { "text": "Designed, built, and deployed GIS and AI-enabled systems (Django, Flask, PostGIS, GeoServer, Leaflet) with RESTful geospatial and ML services for web and field workflows.", "lenses": ["general", "web", "gis-rs"], "source": "master#4.2" },
+      { "text": "Integrated machine learning into API-driven GIS backends for predictive spatial analysis, including RAG systems on structured vector databases.", "lenses": ["general", "gis-rs"], "source": "master#4.2" },
       { "text": "Re-engineered and deployed a customized ANFIS model for heterogeneous remote sensing inputs, delivering predictions via web services.", "lenses": ["gis-rs", "general"], "source": "master#4.2" },
       { "text": "Automated geoprocessing workflows using ArcPy and Model Builder.", "lenses": ["gis-rs", "web"], "source": "master#4.2 (no % claim on site per D14)" }
     ]
@@ -83,6 +80,19 @@
       { "text": "Conducted cadastral and topographic surveys using RTK GNSS and AutoCAD.", "lenses": ["general", "gis-rs"], "source": "master#4.3" },
       { "text": "Performed Cassini-to-UTM coordinate transformations and updated cadastral plans.", "lenses": ["gis-rs"], "source": "master#4.3" },
       { "text": "Supported digitization and spatial database management for land administration.", "lenses": ["general", "gis-rs"], "source": "master#4.3" }
+    ]
+  },
+  {
+    "id": "dekut-club",
+    "title": "Chairperson – Geospatial Developers’ Club",
+    "org": "Dedan Kimathi University of Technology",
+    "location": "Nyeri, Kenya",
+    "period": "Dec 2022 – Jan 2024",
+    "type": "community",
+    "note": "Mirrors the Community row in Education; kept in both places per owner.",
+    "bullets": [
+      { "text": "Led workshops on GIS programming, WebGIS, and spatial machine learning for student developers.", "lenses": ["general", "web", "gis-rs"], "source": "education-leadership" },
+      { "text": "Ran hands-on sessions on spatial data handling and map building for club members.", "lenses": ["general", "gis-rs"], "source": "education-leadership" }
     ]
   }
 ]

@@ -37,45 +37,60 @@ export default function Contact({ formspree, email, availability, schedulingUrl,
         <p className="prose-wrap mt-2 text-sm leading-relaxed sm:text-base">
           Have a project in mind? Email me at <a className="underline break-all" href={`mailto:${email}`}>{email}</a>
           {schedulingUrl ? (
-            <> or <a className="font-semibold underline underline-offset-4" href={schedulingUrl} target="_blank" rel="noreferrer"><Calendar size={14} className="mr-1 inline shrink-0" />Book a project consultation ↗</a></>
+            <> or <a className="font-semibold underline underline-offset-4" href={schedulingUrl} target="_blank" rel="noreferrer"><Calendar size={14} className="mr-1 inline shrink-0" />Book a project consultation </a></>
           ) : null}
           {/* <span style={{ color: "var(--muted)" }}> — I typically reply within 24 hours.</span> */}
         </p>
-        <div className="mt-4 grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-2">
-          <form className="min-w-0" action={formspree} method="POST" onSubmit={onSubmit}>
-            <div className="grid grid-cols-1 gap-3">
-              <input name="name" required placeholder="Your Name" autoComplete="name" className="field" />
-              <input name="email" type="email" required placeholder="Your Email" autoComplete="email" className="field" />
-              <textarea name="message" required placeholder="Your message..." rows={5} className="field min-h-[120px] resize-y" />
-              <input type="hidden" name="_subject" value="New message from portfolio site" />
-              <input
-                type="text"
-                name="_gotcha"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-                className="absolute h-px w-px overflow-hidden opacity-0"
-                style={{ position: "absolute", left: "-9999px" }}
-              />
-              <button className="btn-primary w-full justify-center" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send Message"}</button>
-              <p aria-live="polite" className="text-sm">
-                {state === "ok" ? <span className="text-green-600">Message sent successfully.</span> : null}
-                {state === "error" ? <span className="text-red-600">Something went wrong. Please try again or email directly.</span> : null}
-              </p>
-            </div>
-          </form>
+        <div className="mt-4 grid min-w-0 grid-cols-1 items-start gap-4 lg:grid-cols-2">
           {widgetUrl ? (
-            <div className="card relative min-w-0 overflow-hidden p-1" style={{ borderColor: "var(--border)" }}>
-              <p aria-hidden="true" className="absolute inset-0 p-4 text-sm" style={{ color: "var(--muted)" }}>
-                Loading scheduler…
-              </p>
-              <div
-                className="calendly-inline-widget relative min-w-0"
-                data-url={widgetUrl}
-                style={{ minWidth: 320, height: 700 }}
-              />
+            <div className="min-w-0">
+              <div className="card relative min-w-0 overflow-hidden p-1" style={{ borderColor: "var(--border)" }}>
+                <p aria-hidden="true" className="absolute inset-0 p-4 text-sm" style={{ color: "var(--muted)" }}>
+                  Loading scheduler…
+                </p>
+                <div
+                  className="calendly-inline-widget relative min-w-0"
+                  data-url={widgetUrl}
+                  style={{ minWidth: 0, width: "100%", height: 700 }}
+                />
+              </div>
+              {schedulingUrl ? (
+                <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>
+                  Having trouble loading?{" "}
+                  <a className="font-semibold underline underline-offset-4" href={schedulingUrl} target="_blank" rel="noreferrer">
+                    Book directly on Calendly ↗
+                  </a>
+                </p>
+              ) : null}
             </div>
           ) : null}
+          <div className="min-w-0">
+            <p className="prose-wrap text-sm leading-relaxed sm:text-base">
+              Or you can leave your message here, I will get back to you soon:
+            </p>
+            <form className="mt-3 min-w-0" action={formspree} method="POST" onSubmit={onSubmit}>
+              <div className="grid grid-cols-1 gap-3">
+                <input name="name" required placeholder="Your Name" autoComplete="name" className="field" />
+                <input name="email" type="email" required placeholder="Your Email" autoComplete="email" className="field" />
+                <textarea name="message" required placeholder="Your message..." rows={5} className="field min-h-[120px] resize-y" />
+                <input type="hidden" name="_subject" value="New message from portfolio site" />
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute h-px w-px overflow-hidden opacity-0"
+                  style={{ position: "absolute", left: "-9999px" }}
+                />
+                <button className="btn-primary w-full justify-center" disabled={state === "sending"}>{state === "sending" ? "Sending…" : "Send Message"}</button>
+                <p aria-live="polite" className="text-sm">
+                  {state === "ok" ? <span className="text-green-600">Message sent successfully.</span> : null}
+                  {state === "error" ? <span className="text-red-600">Something went wrong. Please try again or email directly.</span> : null}
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>

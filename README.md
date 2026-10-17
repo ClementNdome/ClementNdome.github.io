@@ -41,4 +41,4 @@ Featured = listed in `content/lenses.json`. Keep 3–4 per lens. Rest appear und
 
 Push to `main` → `.github/workflows/deploy.yml`: `npm ci` → `validate (PROD=1)` → `build` → Pages `out/` + `.nojekyll`. Target domain `https://clementndome.github.io/`.
 
-Privacy: no phone, referee, or personal email in repo. Public email `clement.ndome@spationex.com`. Cert links use Drive URLs for v1.
+Privacy: no phone, referee, or personal email in repo. Public email `clemo.ndome@gmail.com`. Cert links use Drive URLs for v1.
